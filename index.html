@@ -4,10 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Dann LeBeau</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <title>José Córdova-Fredes | GeoTech Developer</title>
+  <meta content="Geographer, GIS Developer, Territorial Analyst — building geographic web interfaces with Leaflet, ArcGIS, Python and JavaScript." name="description">
+  <meta content="GIS, geographer, Leaflet, ArcGIS, Python, JavaScript, territorial analysis, spatial data" name="keywords">
 
   <!-- Favicons -->
   <link href="assets/img/world.png" rel="icon">
@@ -27,225 +26,376 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: iPortfolio
-  * Updated: Sep 18 2023 with Bootstrap v5.3.2
-  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <style>
+    /* ── Tech badge chips ── */
+    .tech-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+    .tech-tag {
+      background: rgba(0,173,181,0.15);
+      color: #00adb5;
+      border: 1px solid rgba(0,173,181,0.4);
+      border-radius: 20px;
+      padding: 3px 12px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: .4px;
+    }
+    /* ── Skill category blocks ── */
+    .skill-group { margin-bottom: 28px; }
+    .skill-group h5 {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #00adb5;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    /* ── Hero accent ── */
+    #hero h1 { font-size: 3rem; }
+    /* ── Stats row ── */
+    .stat-box { text-align: center; padding: 20px 10px; }
+    .stat-box .num { font-size: 2.2rem; font-weight: 700; color: #00adb5; display: block; }
+    .stat-box .num-sub { font-size: 0.72rem; color: #00adb5; display: block; margin-top: -4px; }
+    .stat-box p { font-size: 0.85rem; color: #aaa; margin: 0; }
+    /* ── Featured project cards ── */
+    .feat-card {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      padding: 22px;
+      height: 100%;
+      background: rgba(255,255,255,0.03);
+      transition: border-color .3s, transform .3s;
+    }
+    .feat-card:hover { border-color: #00adb5; transform: translateY(-4px); }
+    .feat-card .icon { font-size: 2rem; color: #00adb5; margin-bottom: 12px; }
+    .feat-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .feat-card p { font-size: 0.85rem; color: #aaa; }
+    .feat-card a { font-size: 0.8rem; color: #00adb5; text-decoration: none; }
+    .feat-card a:hover { text-decoration: underline; }
+    /* ── Publication card ── */
+    .pub-card {
+      border-left: 3px solid #00adb5;
+      padding: 14px 18px;
+      background: rgba(0,173,181,0.05);
+      border-radius: 0 8px 8px 0;
+      margin-top: 12px;
+    }
+    .pub-card h5 { font-size: 0.9rem; font-weight: 600; margin-bottom: 4px; }
+    .pub-card p { font-size: 0.8rem; color: #aaa; margin: 0; }
+
+    /* ── Language bars (custom, no waypoints dependency) ── */
+    .lang-bar-item { margin-bottom: 16px; }
+    .lang-info { display: flex; justify-content: space-between; margin-bottom: 5px; }
+    .lang-info span:first-child { font-size: 0.88rem; font-weight: 600; color: #d9e2ef; }
+    .lang-level { font-size: 0.75rem; color: #00adb5; font-weight: 600; }
+    .lang-track {
+      background: rgba(255,255,255,0.07);
+      border-radius: 4px;
+      height: 6px;
+      overflow: hidden;
+    }
+    .lang-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #00adb5, #00d4de);
+      border-radius: 4px;
+      transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    /* ── Acreditta credential badge ── */
+    .acreditta-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #ff7c43;
+      border: 1px solid rgba(255,124,67,0.35);
+      border-radius: 20px;
+      padding: 2px 10px;
+      text-decoration: none;
+      margin-top: 8px;
+      transition: background 0.2s;
+    }
+    .acreditta-badge:hover { background: rgba(255,124,67,0.1); color: #ff7c43; }
+    .acreditta-badge i { font-size: 0.85rem; }
+
+    /* ── Tech formation cert cards ── */
+    .cert-card {
+      display: flex;
+      gap: 14px;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px;
+      padding: 18px;
+      background: rgba(255,255,255,0.02);
+      margin-bottom: 20px;
+      transition: border-color .3s;
+    }
+    .cert-card:hover { border-color: rgba(0,173,181,0.4); }
+    .cert-icon { font-size: 1.8rem; color: #00adb5; flex-shrink: 0; margin-top: 2px; }
+    .cert-body h5 { font-size: 0.9rem; font-weight: 700; margin-bottom: 3px; }
+    .cert-meta { font-size: 0.78rem; color: #aaa; margin-bottom: 6px; margin-top: 0; }
+
+    /* ── Sidebar collapse animation ── */
+    #header {
+      transition: transform 0.42s cubic-bezier(0.4,0,0.2,1);
+    }
+    body.sidebar-off #header {
+      transform: translateX(-100%);
+    }
+    #main {
+      transition: margin-left 0.42s cubic-bezier(0.4,0,0.2,1);
+    }
+    body.sidebar-off #main {
+      margin-left: 0 !important;
+    }
+    /* Peek tab that appears when sidebar is hidden */
+    #sidebar-peek {
+      position: fixed;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%) translateX(-100%);
+      z-index: 9999;
+      background: #040b14;
+      border: 1px solid rgba(0,173,181,0.45);
+      border-left: none;
+      border-radius: 0 8px 8px 0;
+      width: 26px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #00adb5;
+      transition: transform 0.42s cubic-bezier(0.4,0,0.2,1), background 0.2s;
+    }
+    #sidebar-peek:hover { background: rgba(0,173,181,0.1); }
+    body.sidebar-off #sidebar-peek {
+      transform: translateY(-50%) translateX(0);
+    }
+    #sidebar-peek i { font-size: 1rem; }
+
+    /* ── Portfolio placeholder (projects without screenshot) ── */
+    .portfolio-placeholder {
+      background: linear-gradient(135deg, #060f1e 0%, #0d2137 100%);
+      height: 210px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .portfolio-placeholder i { font-size: 2.6rem; color: #00adb5; }
+    .portfolio-placeholder span { font-size: 0.8rem; color: #888; font-weight: 600; letter-spacing: .4px; }
+
+    /* ── Sidebar copyright ── */
+    .sidebar-footer {
+      margin-top: auto;
+      padding: 16px 20px 20px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      text-align: center;
+    }
+    .sidebar-footer p {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.3);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* Make header a flex column so footer sticks to bottom */
+    #header .d-flex { height: 100%; }
+  </style>
 </head>
 
 <body>
 
-  <!-- ======= Mobile nav toggle button ======= -->
+  <!-- ======= Mobile nav toggle ======= -->
   <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+  <!-- Sidebar peek tab (visible only when sidebar is hidden) -->
+  <div id="sidebar-peek" title="Mostrar menú"><i class="bi bi-chevron-right"></i></div>
 
   <!-- ======= Header ======= -->
   <header id="header">
     <div class="d-flex flex-column">
 
       <div class="profile">
-        <img src="assets/img/Foto_JCF_.JPG" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="index.html">Dann LeBeau</a></h1>
+        <img src="assets/img/Foto_JCF_.JPG" alt="José Córdova-Fredes" class="img-fluid rounded-circle">
+        <h1 class="text-light"><a href="index.html">José Córdova-Fredes</a></h1>
         <div class="social-links mt-3 text-center">
-          <a href="https://github.com/dannlebeau" class="git-hub"><i class="bx bxl-github"></i></a>
-          <!-- 
-          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-          <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-          <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-          -->
-          <a href="https://www.linkedin.com/in/jcordovafredes/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-          <a href="mailto:<jcordovafredes@icloud.com>" class="email"><i class="bx bx-envelope"></i></a>
+          <a href="https://github.com/dannlebeau" class="github" target="_blank"><i class="bx bxl-github"></i></a>
+          <a href="https://www.linkedin.com/in/jcordovafredes/" class="linkedin" target="_blank"><i class="bx bxl-linkedin"></i></a>
+          <a href="mailto:legeographe@proton.me" class="email"><i class="bx bx-envelope"></i></a>
         </div>
       </div>
 
       <nav id="navbar" class="nav-menu navbar">
         <ul>
-          <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-          <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-          <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-          <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
-          <!--<li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li>-->
-          <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+          <li><a href="#hero"      class="nav-link scrollto active"><i class="bx bx-home"></i>         <span>Home</span></a></li>
+          <li><a href="#about"     class="nav-link scrollto"><i class="bx bx-user"></i>                 <span>About</span></a></li>
+          <li><a href="#skills"    class="nav-link scrollto"><i class="bx bx-code-alt"></i>             <span>Skills</span></a></li>
+          <li><a href="#resume"    class="nav-link scrollto"><i class="bx bx-file-blank"></i>           <span>Resume</span></a></li>
+          <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i>         <span>Projects</span></a></li>
+          <li><a href="#contact"   class="nav-link scrollto"><i class="bx bx-envelope"></i>             <span>Contact</span></a></li>
         </ul>
-      </nav><!-- .nav-menu -->
-    </div>
-  </header><!-- End Header -->
+      </nav>
 
-  <!-- ======= Hero Section ======= -->
+      <div class="sidebar-footer">
+        <p>&copy; <span id="copy-year"></span> José Córdova-Fredes</p>
+        <p>GeoTech Developer</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======= Hero ======= -->
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <div class="hero-container" data-aos="fade-in">
-      <h1>Dann LeBeau</h1>
-      <p>I'm <span class="typed" data-typed-items="Geographer, Developer, Freelancer, Explorer"></span></p>
+      <h1>José Córdova-Fredes</h1>
+      <p>I'm a <span class="typed" data-typed-items="GIS Developer, Geographer, Territorial Analyst, Web Map Builder, Spatial Data Scientist"></span></p>
     </div>
-  </section><!-- End Hero -->
+  </section>
 
   <main id="main">
 
-    <!-- ======= About Section ======= -->
+    <!-- ======= About ======= -->
     <section id="about" class="about">
       <div class="container">
 
         <div class="section-title">
           <h2>About</h2>
-          <p>I am José Córdova-Fredes a.k.a. Dann LeBeau. I am a geographer, with an interest in urban planning and cities. I am very interestes in geographic information systems (GIS), so I hope to integrate them with information technology; I consider myself an explorer in this world.</p>
+          <p>Geographer and GIS developer with 7+ years of experience turning spatial data into actionable web interfaces. I bridge territorial analysis and software development — from Python geoprocessing scripts to interactive Leaflet/ArcGIS Online maps deployed for public and private clients across Chile and Latin America. Currently pursuing a PhD in Territorial Planning at the Universitat de Barcelona.</p>
         </div>
 
         <div class="row">
           <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/JCF_2.jpeg" class="img-fluid" alt="">
+            <img src="assets/img/JCF_2.jpeg" class="img-fluid" alt="José Córdova-Fredes">
           </div>
           <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-            <h3>Geographer &amp; Developer.</h3>
-            <!-- 
-            <p class="fst-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
-            </p>-->
+            <h3>Geographer &amp; GeoTech Developer</h3>
             <div class="row">
               <div class="col-lg-6">
                 <ul>
                   <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>1 Sep 1993</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>www.example.com</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+34 675 80 25 36</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Madrid, Spain</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Barcelona / Santiago</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
                 </ul>
               </div>
               <div class="col-lg-6">
                 <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>30</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Master</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>jcordovafredes@icloud.com</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>PhD (in progress)</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>legeographe@proton.me</span></li>
                 </ul>
               </div>
             </div>
-            <!-- 
-            <p>
-              Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis.
-              Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque neque. Aliquid amet quidem ut quaerat cupiditate. Ab et eum qui repellendus omnis culpa magni laudantium dolores.
-            </p>
-            -->
-          </div>
-        </div>
 
-      </div>
-    </section><!-- End About Section -->
-    
-    <!-- 
-
-    ======= Facts Section ======= 
-    <section id="facts" class="facts">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Facts</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-        </div>
-
-        <div class="row no-gutters">
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up">
-            <div class="count-box">
-              <i class="bi bi-emoji-smile"></i>
-              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Happy Clients</strong> consequuntur quae</p>
+            <!-- Stats -->
+            <div class="row mt-4">
+              <div class="col-4">
+                <div class="stat-box">
+                  <span class="num" id="exp-years">—</span>
+                  <span class="num-sub" id="exp-months"></span>
+                  <p>Professional exp.</p>
+                </div>
+              </div>
+              <div class="col-4"><div class="stat-box"><span class="num">15+</span><p>Projects delivered</p></div></div>
+              <div class="col-4"><div class="stat-box"><span class="num">3</span><p>Countries</p></div></div>
             </div>
           </div>
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="100">
-            <div class="count-box">
-              <i class="bi bi-journal-richtext"></i>
-              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Projects</strong> adipisci atque cum quia aut</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="200">
-            <div class="count-box">
-              <i class="bi bi-headset"></i>
-              <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Hours Of Support</strong> aut commodi quaerat</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="300">
-            <div class="count-box">
-              <i class="bi bi-people"></i>
-              <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Hard Workers</strong> rerum asperiores dolor</p>
-            </div>
-          </div>
-
         </div>
 
       </div>
     </section>
-    --> 
-    <!-- End Facts Section -->
-  
 
-    <!-- ======= Skills Section ======= -->
+    <!-- ======= Skills ======= -->
     <section id="skills" class="skills section-bg">
       <div class="container">
 
         <div class="section-title">
-          <h2>Skills</h2>
-          <!-- 
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. 
-            Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. 
-            Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-            -->
+          <h2>Technical Skills</h2>
+          <p>Full-stack spatial development stack — from raw geodata to live web maps.</p>
         </div>
 
-        <div class="row skills-content">
+        <div class="row" data-aos="fade-up">
 
-          <div class="col-lg-6" data-aos="fade-up">
+          <!-- Col 1 -->
+          <div class="col-lg-4 col-md-6">
 
-            <div class="progress">
-              <span class="skill">HTML <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="skill-group">
+              <h5><i class="bi bi-map me-1"></i> GIS Platforms</h5>
+              <div class="tech-tags">
+                <span class="tech-tag">ArcGIS Pro</span>
+                <span class="tech-tag">QGIS</span>
+                <span class="tech-tag">ArcGIS Online</span>
+                <span class="tech-tag">Arcade</span>
+                <span class="tech-tag">ModelBuilder</span>
+                <span class="tech-tag">Survey Connect</span>
               </div>
             </div>
 
-            <div class="progress">
-              <span class="skill">CSS <i class="val">70%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">JavaScript <i class="val">60%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="skill-group">
+              <h5><i class="bi bi-globe2 me-1"></i> Web Mapping</h5>
+              <div class="tech-tags">
+                <span class="tech-tag">Leaflet.js</span>
+                <span class="tech-tag">ArcGIS JS API</span>
+                <span class="tech-tag">GeoJSON</span>
+                <span class="tech-tag">MapLibre</span>
               </div>
             </div>
 
           </div>
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+          <!-- Col 2 -->
+          <div class="col-lg-4 col-md-6">
 
-            <div class="progress">
-              <span class="skill">Interface ESRI products <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="skill-group">
+              <h5><i class="bi bi-code-slash me-1"></i> Programming</h5>
+              <div class="tech-tags">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">R</span>
+                <span class="tech-tag">SQL</span>
+                <span class="tech-tag">HTML / CSS</span>
               </div>
             </div>
 
-            <div class="progress">
-              <span class="skill">Python <i class="val">70%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="skill-group">
+              <h5><i class="bi bi-bar-chart-line me-1"></i> Data & Analysis</h5>
+              <div class="tech-tags">
+                <span class="tech-tag">GeoPandas</span>
+                <span class="tech-tag">Pandas</span>
+                <span class="tech-tag">Matplotlib</span>
+                <span class="tech-tag">R Studio</span>
+                <span class="tech-tag">Power BI</span>
+                <span class="tech-tag">SPSS</span>
+                <span class="tech-tag">REDATAM</span>
               </div>
             </div>
 
-            <div class="progress">
-              <span class="skill">Database <i class="val">60%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+
+          <!-- Col 3 -->
+          <div class="col-lg-4 col-md-6">
+
+            <div class="skill-group">
+              <h5><i class="bi bi-database me-1"></i> Databases</h5>
+              <div class="tech-tags">
+                <span class="tech-tag">PostgreSQL</span>
+                <span class="tech-tag">PostGIS</span>
+                <span class="tech-tag">Oracle SQL</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">SQLite</span>
+                <span class="tech-tag">Supabase</span>
+              </div>
+            </div>
+
+            <div class="skill-group">
+              <h5><i class="bi bi-cloud me-1"></i> Cloud & DevOps</h5>
+              <div class="tech-tags">
+                <span class="tech-tag">Docker</span>
+                <span class="tech-tag">Azure</span>
+                <span class="tech-tag">AWS</span>
+                <span class="tech-tag">Vercel</span>
+                <span class="tech-tag">GitHub Pages</span>
+                <span class="tech-tag">Node.js</span>
               </div>
             </div>
 
@@ -253,538 +403,609 @@
 
         </div>
 
-      </div>
-    </section><!-- End Skills Section -->
-
-    <!-- ======= Language Section ======= -->
-    <section id="skills" class="skills section-bg">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Languague</h2>
-          <!-- 
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. 
-            Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. 
-            Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-            -->
-        </div>
-
-        <div class="row skills-content">
-
-          <div class="col-lg-6" data-aos="fade-up">
-
-            <div class="progress">
-              <span class="skill">Spanish (Mother Tongue) <i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">English <i class="val">60%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">French <i class="val">30%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
+        <!-- Language bars -->
+        <div class="row mt-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-12">
+            <h5 style="font-size:0.72rem;text-transform:uppercase;letter-spacing:1.5px;color:#00adb5;font-weight:700;margin-bottom:16px;">
+              <i class="bi bi-translate me-1"></i> Languages
+            </h5>
           </div>
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="progress">
-              <span class="skill">Portuguese <i class="val">30%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
+          <div class="col-lg-6">
+            <div class="lang-bar-item">
+              <div class="lang-info"><span>Español</span><span class="lang-level">Nativo</span></div>
+              <div class="lang-track"><div class="lang-fill" style="width:100%"></div></div>
             </div>
-<!-- 
-            <div class="progress">
-              <span class="skill">Python <i class="val">70%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
+            <div class="lang-bar-item">
+              <div class="lang-info"><span>English</span><span class="lang-level">Intermediate (B2)</span></div>
+              <div class="lang-track"><div class="lang-fill" style="width:65%"></div></div>
             </div>
-
-            <div class="progress">
-              <span class="skill">Database <i class="val">60%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
--->
-
           </div>
-
+          <div class="col-lg-6">
+            <div class="lang-bar-item">
+              <div class="lang-info"><span>Français</span><span class="lang-level">Beginner (A2)</span></div>
+              <div class="lang-track"><div class="lang-fill" style="width:25%"></div></div>
+            </div>
+            <div class="lang-bar-item">
+              <div class="lang-info"><span>Português</span><span class="lang-level">Beginner (A1)</span></div>
+              <div class="lang-track"><div class="lang-fill" style="width:15%"></div></div>
+            </div>
+          </div>
         </div>
 
       </div>
-    </section><!-- End Skills Section -->
+    </section>
 
-
-
-    <!-- ======= Resume Section ======= -->
+    <!-- ======= Resume ======= -->
     <section id="resume" class="resume">
       <div class="container">
 
         <div class="section-title">
           <h2>Resume</h2>
-          <p>Professional with experience in geographic data analysis, geospatial development, geographic information systems (GIS) and Territorial Intelligence.
-
-            I have knowledge in econometric spatial data modeling using ArcGIS, QGIS, Python and R.
-            I have performed backend and frontend functions for geographic interface in free and paid software; as well as data analyst for quantitative, qualitative, spatial and geostatistical analysis incorporating GIS and Big Data mainly through Python.</p>
+          <p>Geographer with a PhD in progress, specialized in geographic data analysis, geospatial web development and territorial intelligence. I develop spatial interfaces using ArcGIS, Leaflet and custom JavaScript; process geodata with Python and R; and design full-stack solutions that link databases, APIs and interactive maps for public and private clients.</p>
         </div>
 
         <div class="row">
-          <div class="col-lg-6" data-aos="fade-up">
-            <h3 class="resume-title">Sumary</h3>
-            <!--
-            <div class="resume-item pb-0">
-              <h4>Alex Smith</h4>
-              <p><em>Innovative and deadline-driven Graphic Designer with 3+ years of experience designing and developing user-centered digital/print marketing material from initial concept to final, polished deliverable.</em></p>
-              <ul>
-                <li>Portland par 127,Orlando, FL</li>
-                <li>(123) 456-7891</li>
-                <li>alice.barkley@example.com</li>
-              </ul>
-            </div>-->
 
-            <h3 class="resume-title">Education</h3>
+          <!-- Left col: Academic Formation -->
+          <div class="col-lg-6" data-aos="fade-up">
+
+            <h3 class="resume-title">Academic Formation</h3>
+
             <div class="resume-item">
-              <h4>Master in territorial plannning and enviromental management</h4>
-              <h5>feb-2021 / mar-2022</h5>
-              <p><em>Universitat de Barcelona, BCN, Spain.</em></p>
-              <p>Thesis: "Midiendo la ciudad compacta. Desafíos para la planificación territorial en Santiago de Chile"
-                Tutor: Dra. Jenniffer Thiers Quintana
-              </p>
+              <h4>PhD — Territorial Planning &amp; Environmental Management</h4>
+              <h5>Sep 2025 – present</h5>
+              <p><em>Universitat de Barcelona, Barcelona, Spain</em></p>
+              <p>Program: Geografía, Planificación Territorial y Gestión Ambiental. Expected completion Nov 2029.</p>
             </div>
+
             <div class="resume-item">
-              <h4>Geographer</h4>
-              <h5>mar-2012 / jun-2018</h5>
-              <p><em>Pontificia Universidad Católica de Chile, Santiago, Chile</em></p>
-              <p>Thesis: Evolución del uso de suelo en la comuna de Curepto, Provincia de Talca, VII Región del Maule, Chile, en el período 1986 - 2016.
-                Tutors: Dra. Marcela Sánchez & Dr. Luis Carvacho
-              </p>
+              <h4>Master's — Territorial Planning &amp; Environmental Management</h4>
+              <h5>Feb 2021 – Mar 2022</h5>
+              <p><em>Universitat de Barcelona, Barcelona, Spain</em></p>
+              <p>Thesis: "Midiendo la ciudad compacta. Desafíos para la planificación territorial en Santiago de Chile."</p>
+              <div class="tech-tags"><span class="tech-tag">Urban Analysis</span><span class="tech-tag">Compact City</span><span class="tech-tag">GIS</span></div>
             </div>
-            <!--Complementary Education-->
-            <h3 class="resume-title">Complementary education</h3>
+
             <div class="resume-item">
-              <h4>Bootcamp Full Stack Developer Python</h4>
-              <h5>mar-2023 / aug-2023</h5>
-              <p><em>Eductecno, Santiago, Chile.</em></p>
+              <h4>Bachelor's — Geography <small style="color:#00adb5;font-size:0.75rem;font-weight:600;">(Distinction)</small></h4>
+              <h5>Mar 2012 – Jan 2019</h5>
+              <p><em>Pontificia Universidad Católica de Chile, Santiago</em></p>
+              <p>Thesis defended Jan 3, 2019 — Land-use change Curepto commune 1986–2016.</p>
             </div>
-            <div class="resume-item">
-              <h4>Diplomado en Inteligencia Territorial y Geomarketing</h4>
-              <h5>oct-2020 / apr-2021</h5>
-              <p><em>Universidad de Chile, Santiago, Chile.</em></p>
+
+            <h3 class="resume-title mt-4">Publication</h3>
+            <div class="pub-card">
+              <h5>Accesibilidad Espacial en la comuna de Quinta Normal</h5>
+              <p>Revista Geográfica Terra Australis, Vol. 58, ISSN 0719-9562 — Método 2SFCA aplicado a educación, salud y seguridad.</p>
+              <a href="https://www.revistaterraaustralis.cl/index.php/rgch/article/view/122/70" target="_blank" style="color:#00adb5;font-size:0.8rem;">Leer artículo →</a>
             </div>
-            <div class="resume-item">
-              <h4>Curso de Especialización en Base de datos espaciales</h4>
-              <h5>nov-2020 / dec-2020</h5>
-              <p><em>Universitat de Girona, Cataluña, Spain.</em></p>
-            </div>
-            <div class="resume-item">
-              <h4>Diplomado en Planificación del ordenamiento territorial, regional y local</h4>
-              <h5>jun-2020 / nov-2020</h5>
-              <p><em>Universidad de Chile, Santiago, Chile</em></p>
-            </div>
-            <div class="resume-item">
-              <h4>Diplomado en Pueblos indigenas, politica publica y normativa</h4>
-              <h5>jul-2020 / nov-2020</h5>
-              <p><em>Universidad de Chile, Santiago, Chile</em></p>
-            </div>
+
           </div>
 
-          <!-- Experience-->
+          <!-- Right col: Experience -->
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+
             <h3 class="resume-title">Professional Experience</h3>
+
             <div class="resume-item">
-              <h4>Gis Implementer</h4>
-              <h5>jun-2021 / sept-2022</h5>
-              <p><em>XYGO, Santiago, CL </em></p>
-              <p>Professional in charge of developing, integrating and implementing geospatial functionalities in the corporate portal of a healthcare company. 
-                Used ESRI's robust infrastructure to enable geographic features in both the office and field environment. Besides. I successfully managed the 
-                implementation and transfer of databases that contained geographic and alphanumeric information, facilitating connectivity between the company and its clients through Oracle SQL Developer</p>
-              <!--
-              <ul>
-                <li>Lead in the design, development, and implementation of the graphic, layout, and production communication materials</li>
-                <li>Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the project. </li>
-                <li>Supervise the assessment of all graphic materials in order to ensure quality and accuracy of the design</li>
-                <li>Oversee the efficient use of production project budgets ranging from $2,000 - $25,000</li>
-              </ul>-->
+              <h4>Territorial &amp; Geospatial Consultant</h4>
+              <h5>Nov 2025 – present</h5>
+              <p><em>Geopolis Consultores Ltda., Santiago, Chile</em></p>
+              <p>Formulation and socioeconomic evaluation of public investment projects (SNI/BIP). Geographic analysis and RS management for road paving projects in municipalities.</p>
+              <div class="tech-tags"><span class="tech-tag">SNI/BIP</span><span class="tech-tag">Public Investment</span><span class="tech-tag">GIS</span></div>
             </div>
-            <div class="resume-item">
-              <h4>Passant</h4>
-              <h5>may-2021 / jun-2021</h5>
-              <p><em>Mapoteca, Santiago, CL</em></p>
-              <p>Backend internship where I generated insights for territorial intelligence studies using econometric models through the Python 
-                programming language where the results pointed towards economic and territorial dynamics, providing a solid basis for strategic decision-making in the field of territorial planning.</p>
-              <!--
-              <ul>
-                <li>Developed numerous marketing programs (logos, brochures,infographics, presentations, and advertisements).</li>
-                <li>Managed up to 5 projects or tasks at a given time while under pressure</li>
-                <li>Recommended and consulted with clients on the most appropriate graphic design</li>
-                <li>Created 4+ design presentations and proposals a month for clients and account managers</li>
-              </ul>-->
-            </div>
-            <div class="resume-item">
-              <h4>Urban Analyst</h4>
-              <h5>mar-2021 / may-2021</h5>
-              <p><em>Entorno Servicios, Vitacura, CL</em></p>
-              <p>Responsible for generating the optimal location of properties for real estate projects in the province of Santiago through Geographic Information 
-                Systems (GIS) using quantitative and qualitative multi-criteria evaluation methodology.</p>
-              <!--
-              <ul>
-                <li>Developed numerous marketing programs (logos, brochures,infographics, presentations, and advertisements).</li>
-                <li>Managed up to 5 projects or tasks at a given time while under pressure</li>
-                <li>Recommended and consulted with clients on the most appropriate graphic design</li>
-                <li>Created 4+ design presentations and proposals a month for clients and account managers</li>
-              </ul>-->
-            </div>
+
             <div class="resume-item">
               <h4>Territorial Analyst</h4>
-              <h5>feb-2020 / aug-2020</h5>
-              <p><em>Ilustre Municipalidad de Santiago, Santiago, CL</em></p>
-              <p>Responsible for carrying out field surveys, analysis, systematization of information and generation of cartography 
-                  using geographic information systems (GIS); in addition to characterizing the areas to be worked on by applying 
-                  qualitative methodologies for participatory processes and quantitatively interpreting the results produced by the 
-                  participatory processes of the Technical Assistance project for the development of intervention standards for typical areas of the commune of Santiago.</p>
-                <!--
-                <ul>
-                  <li>Developed numerous marketing programs (logos, brochures,infographics, presentations, and advertisements).</li>
-                  <li>Managed up to 5 projects or tasks at a given time while under pressure</li>
-                  <li>Recommended and consulted with clients on the most appropriate graphic design</li>
-                  <li>Created 4+ design presentations and proposals a month for clients and account managers</li>
-                </ul>-->
+              <h5>May 2025 – Mar 2026</h5>
+              <p><em>Fundación Huella Local, Santiago, Chile</em></p>
+              <p>Led GIS analysis and developed geographic web interfaces for projects with CMPC (Radiografía del Agua), Ministry of Social Development, and Municipality of Los Andes (Climate Change Action Plan — vulnerability &amp; GEI emissions).</p>
+              <div class="tech-tags"><span class="tech-tag">Leaflet.js</span><span class="tech-tag">Python</span><span class="tech-tag">QGIS</span><span class="tech-tag">Climate Analysis</span></div>
             </div>
+
             <div class="resume-item">
-                <h4>Professional practice</h4>
-                <h5>sept-2018 / oct-2018</h5>
-                <p><em>ICNOVA ING, Providencia, CL</em></p>
-                <p>During the internship I contributed to the analysis of geospatial data related to transportation and climate change, participating in the identification 
-                  of areas vulnerable to extreme climate events focused on the risks of mass removal, thus contributing with adaptation measures in urban development projects at the national level.</p>
-                <!--
-                <ul>
-                  <li>Developed numerous marketing programs (logos, brochures,infographics, presentations, and advertisements).</li>
-                  <li>Managed up to 5 projects or tasks at a given time while under pressure</li>
-                  <li>Recommended and consulted with clients on the most appropriate graphic design</li>
-                  <li>Created 4+ design presentations and proposals a month for clients and account managers</li>
-                </ul>-->
+              <h4>Territorial Analysis Specialist</h4>
+              <h5>Jun 2024 – Mar 2025</h5>
+              <p><em>IDOM Consulting, Engineering &amp; Architecture, Santiago, Chile</em></p>
+              <p>Built interactive geographic interfaces with Leaflet + JS and ArcGIS Online/Arcade for projects including SomosLAC (GIZ), PEZC Valparaíso (Port Authority) and Al Ahsa Local Plan (Saudi Arabia). Developed Python/JS scripts for lyr→GeoJSON/Shapefile conversion and mobility modelling.</p>
+              <div class="tech-tags"><span class="tech-tag">Leaflet.js</span><span class="tech-tag">ArcGIS Online</span><span class="tech-tag">Arcade</span><span class="tech-tag">Python</span><span class="tech-tag">Node.js</span><span class="tech-tag">WordPress</span><span class="tech-tag">Vercel</span></div>
             </div>
-              
+
+            <div class="resume-item">
+              <h4>Geographer / PLADECO Consultant</h4>
+              <h5>Jan 2024 – Sep 2024</h5>
+              <p><em>Mapocho Consultores, Santiago, Chile</em></p>
+              <p>Led the creation of the territorial information system and specialized cartography for the Punitaqui Communal Development Plan (PLADECO 2024–2028) using ArcGIS Pro.</p>
+              <div class="tech-tags"><span class="tech-tag">ArcGIS Pro</span><span class="tech-tag">PLADECO</span><span class="tech-tag">Territorial Planning</span></div>
             </div>
+
+            <div class="resume-item">
+              <h4>Research Associate — Climate Change</h4>
+              <h5>Jan 2024 – May 2024</h5>
+              <p><em>Centro EULA-Chile, Universidad de Concepción (FAO project)</em></p>
+              <p>Characterized climate vulnerability of Biobío Region for the Regional Climate Change Action Plan (PARCC).</p>
+              <div class="tech-tags"><span class="tech-tag">Vulnerability Assessment</span><span class="tech-tag">Climate Change</span><span class="tech-tag">R</span></div>
+            </div>
+
+            <div class="resume-item">
+              <h4>GIS Implementer</h4>
+              <h5>Jun 2021 – Sep 2022</h5>
+              <p><em>XYGO (Mapas Digitales S.A.), Santiago, Chile</em></p>
+              <p>Developed and integrated geospatial functionalities in the corporate portal of a sanitary company using ESRI infrastructure. Managed geographic and alphanumeric database migration via Oracle SQL Developer.</p>
+              <div class="tech-tags"><span class="tech-tag">ArcGIS</span><span class="tech-tag">Oracle SQL</span><span class="tech-tag">ESRI</span></div>
+            </div>
+
+            <div class="resume-item">
+              <h4>Territorial Analyst</h4>
+              <h5>Feb 2020 – Aug 2020</h5>
+              <p><em>Ilustre Municipalidad de Santiago, Santiago, Chile</em></p>
+              <p>Field surveys, GIS cartography and qualitative analysis for the Technical Assistance project on intervention standards for typical zones of Santiago commune.</p>
+              <div class="tech-tags"><span class="tech-tag">QGIS</span><span class="tech-tag">Participatory Planning</span><span class="tech-tag">Cartography</span></div>
+            </div>
+
+            <div class="resume-item">
+              <h4>Independent Geographer &amp; Consultant</h4>
+              <h5>Mar 2019 – present</h5>
+              <p><em>Autonomous, Chile / Spain</em></p>
+              <p>Territorial diagnostics, climate and environmental assessments. Development of geospatial web viewers with Leaflet, JavaScript and Node.js. GIS analysis for SEIA environmental impact assessments.</p>
+              <div class="tech-tags"><span class="tech-tag">Leaflet.js</span><span class="tech-tag">Node.js</span><span class="tech-tag">QGIS</span><span class="tech-tag">SEIA</span></div>
+            </div>
+
           </div>
         </div>
 
-    </section><!-- End Resume Section -->
-
-    <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio section-bg">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Portfolio</h2>
-          <p>Here you will find the projects in which I have participated by respective categories.</p>
-        </div>
-
-        <div class="row" data-aos="fade-up">
-          <div class="col-lg-12 d-flex justify-content-center">
-            <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <!-- 
-              <li data-filter=".filter-app">App</li>-->
-              <li data-filter=".filter-card">Research</li>
-              <li data-filter=".filter-web">Web</li>
-            </ul>
+        <!-- ── Technical Formation ── -->
+        <div class="row mt-5" data-aos="fade-up">
+          <div class="col-12">
+            <h3 class="resume-title">Technical Formation</h3>
+            <p style="color:#aaa;font-size:0.88rem;margin-bottom:28px;">Formación tecnológica en desarrollo full stack, análisis espacial y ciencia de datos aplicada al territorio.</p>
           </div>
-        </div>
 
-        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
-          <!-- 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-          -->
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="assets/img/Project_01.PNG" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/Project_01.PNG" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                <a href="dannlebeau.github.io/project01.github.io" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-          <!-- 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-          -->
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/cover_issue_9.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/cover_issue_9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
-                <a href="https://www.revistaterraaustralis.cl/index.php/rgch/article/view/122" title="More Details"><i class="bx bx-link"></i></a>
+          <!-- Con credencial Acreditta -->
+          <div class="col-lg-4 col-md-6">
+            <div class="cert-card">
+              <div class="cert-icon"><i class="bi bi-code-square"></i></div>
+              <div class="cert-body">
+                <h5>Full Stack JavaScript Developer</h5>
+                <p class="cert-meta">ABRE Capacitación / SENCE · 472 h · Ene–Jun 2024</p>
+                <div class="tech-tags"><span class="tech-tag">React</span><span class="tech-tag">Node.js</span><span class="tech-tag">Express</span><span class="tech-tag">MongoDB</span></div>
+                <a href="https://www.acreditta.com" class="acreditta-badge" target="_blank"><i class="bi bi-patch-check-fill"></i> Credencial Acreditta</a>
               </div>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="assets/img/Project_02.png" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/Project_02.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
-                <a href="dannlebeau.github.io/project02.github.io" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-          <!-- 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-          -->
-          <!-- Research 2 -->
-          <!-- 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-          -->
-          <!-- Research 3-->
-          <!-- 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-          -->
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="assets/img/Project_03.png" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/Project_03.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                <a href="dannlebeau.github.io/project03.github.io" title="More Details"><i class="bx bx-link"></i></a>
+          <div class="col-lg-4 col-md-6">
+            <div class="cert-card">
+              <div class="cert-icon"><i class="bi bi-filetype-py"></i></div>
+              <div class="cert-body">
+                <h5>Full Stack Python Developer</h5>
+                <p class="cert-meta">SENCE · 449 h · Abr–Ago 2023</p>
+                <div class="tech-tags"><span class="tech-tag">Django</span><span class="tech-tag">Python</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">REST API</span></div>
+                <a href="https://www.acreditta.com" class="acreditta-badge" target="_blank"><i class="bi bi-patch-check-fill"></i> Credencial Acreditta</a>
               </div>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="assets/img/Project_04.png" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/Project_04.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                <a href="https://dannlebeau.github.io/project13.github.io/"title="More Details"><i class="bx bx-link"></i></a>
+          <div class="col-lg-4 col-md-6">
+            <div class="cert-card">
+              <div class="cert-icon"><i class="bi bi-shield-lock"></i></div>
+              <div class="cert-body">
+                <h5>Ciberseguridad</h5>
+                <p class="cert-meta">SENCE · Santiago</p>
+                <div class="tech-tags"><span class="tech-tag">Seguridad informática</span><span class="tech-tag">Redes</span><span class="tech-tag">Ethical Hacking</span></div>
+                <a href="https://www.acreditta.com" class="acreditta-badge" target="_blank"><i class="bi bi-patch-check-fill"></i> Credencial Acreditta</a>
               </div>
             </div>
           </div>
 
-        </div>
-
-      </div>
-    </section><!-- End Portfolio Section -->
-
-    <!-- ======= Services Section ======= -->
-    <section id="services" class="services">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Services</h2>
-          <!-- 
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. 
-            Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. 
-            Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-            -->
-        </div>
-
-        <div class="row">
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
-            <div class="icon"><i class="bi bi-briefcase"></i></div>
-            <h4 class="title"><a href="">Geographer</a></h4>
-            <!-- 
-            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias 
-              excepturi sint occaecati cupiditate non provident</p>
-              -->
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon"><i class="bi bi-card-checklist"></i></div>
-            <h4 class="title"><a href="">Developer</a></h4>
-            <!-- 
-            <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
-              ex ea commodo consequat tarad limino ata</p>
-              -->
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon"><i class="bi bi-bar-chart"></i></div>
-            <h4 class="title"><a href="">Data Analyst</a></h4>
-            <!-- 
-            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse 
-              cillum dolore eu fugiat nulla pariatur</p>
-              -->
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon"><i class="bi bi-binoculars"></i></div>
-            <h4 class="title"><a href="">Research</a></h4>
-            <!-- 
-            <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui 
-              officia deserunt mollit anim id est laborum</p>
-            -->
-          </div>
-          <!-- 
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
-            <div class="icon"><i class="bi bi-brightness-high"></i></div>
-            <h4 class="title"><a href="">Nemo Enim</a></h4>
-            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
-            <div class="icon"><i class="bi bi-calendar4-week"></i></div>
-            <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
-            <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
-          </div>
-          -->
-        </div>
-
-      </div>
-    </section><!-- End Services Section -->
-
-    <!-- ======= Testimonials Section ======= -->
-    <!-- 
-    <section id="testimonials" class="testimonials section-bg">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Testimonials</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-        </div>
-
-        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-          <div class="swiper-wrapper">
-
-            <div class="swiper-slide">
-              <div class="testimonial-item" data-aos="fade-up">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                <h3>Saul Goodman</h3>
-                <h4>Ceo &amp; Founder</h4>
+          <div class="col-lg-4 col-md-6">
+            <div class="cert-card">
+              <div class="cert-icon"><i class="bi bi-terminal"></i></div>
+              <div class="cert-body">
+                <h5>Sistemas Operativos</h5>
+                <p class="cert-meta">SENCE · Santiago</p>
+                <div class="tech-tags"><span class="tech-tag">Linux</span><span class="tech-tag">Shell</span><span class="tech-tag">Administración</span></div>
+                <a href="https://www.acreditta.com" class="acreditta-badge" target="_blank"><i class="bi bi-patch-check-fill"></i> Credencial Acreditta</a>
               </div>
             </div>
-            
-          End testimonial item 
-
-            <div class="swiper-slide">
-              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="100">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                <h3>Sara Wilsson</h3>
-                <h4>Designer</h4>
-              </div>
-            </div>
-            End testimonial 
-
-            <div class="swiper-slide">
-              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="200">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                <h3>Jena Karlis</h3>
-                <h4>Store Owner</h4>
-              </div>
-            </div>
-          End testimonial 
-
-            <div class="swiper-slide">
-              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="300">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                <h3>Matt Brandon</h3>
-                <h4>Freelancer</h4>
-              </div>
-            </div>
-          End testimonial 
-
-            <div class="swiper-slide">
-              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="400">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                <h3>John Larson</h3>
-                <h4>Entrepreneur</h4>
-              </div>
-            </div>
-          End testimonial item 
-
           </div>
-          <div class="swiper-pagination"></div>
+
+          <!-- Sin credencial Acreditta -->
+          <div class="col-lg-4 col-md-6">
+            <div class="cert-card">
+              <div class="cert-icon"><i class="bi bi-globe2"></i></div>
+              <div class="cert-body">
+                <h5>Especialización en Bases de Datos Espaciales</h5>
+                <p class="cert-meta">Universitat de Girona (SIGTE) · 6 ECTS · Ago–Nov 2021</p>
+                <div class="tech-tags"><span class="tech-tag">PostGIS</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">Spatial SQL</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="cert-card">
+              <div class="cert-icon"><i class="bi bi-graph-up-arrow"></i></div>
+              <div class="cert-body">
+                <h5>Geoanálisis para Políticas Públicas</h5>
+                <p class="cert-meta">UAI · Jul–Sep 2025 · Nota 6.6 / 7.0</p>
+                <div class="tech-tags"><span class="tech-tag">Python</span><span class="tech-tag">GeoPandas</span><span class="tech-tag">Spatial Statistics</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="cert-card">
+              <div class="cert-icon"><i class="bi bi-calculator"></i></div>
+              <div class="cert-body">
+                <h5>Econometría Espacial</h5>
+                <p class="cert-meta">Universidad de Chile · May–Jul 2025 · Nota 6.4 / 7.0</p>
+                <div class="tech-tags"><span class="tech-tag">R</span><span class="tech-tag">Spatial Regression</span><span class="tech-tag">Moran's I</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="cert-card">
+              <div class="cert-icon"><i class="bi bi-bar-chart-steps"></i></div>
+              <div class="cert-body">
+                <h5>Diplom. Formulación y Evaluación de Proyectos</h5>
+                <p class="cert-meta">Universidad de Concepción · Abr–Oct 2025 · Nota 6.3 / 7.0</p>
+                <div class="tech-tags"><span class="tech-tag">SNI/BIP</span><span class="tech-tag">Evaluación Social</span><span class="tech-tag">Gestión Pública</span></div>
+              </div>
+            </div>
+          </div>
+
         </div>
 
       </div>
     </section>
-  -->
-    <!-- End Testimonials Section -->
 
-    <!-- ======= Contact Section ======= -->
+    <!-- ======= Featured Projects ======= -->
+    <section id="portfolio" class="portfolio section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Projects</h2>
+          <p>Interfaces geoespaciales, plataformas territoriales y aplicaciones full stack — construidas con Leaflet, ArcGIS, JavaScript, Python y TypeScript.</p>
+        </div>
+
+        <!-- Filter -->
+        <div class="row" data-aos="fade-up">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">Todo</li>
+              <li data-filter=".filter-gis">Interfaces GIS</li>
+              <li data-filter=".filter-data">Datos Territoriales</li>
+              <li data-filter=".filter-stack">Full Stack</li>
+              <li data-filter=".filter-research">Investigación</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Grid -->
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
+
+          <!-- Alerta Caudal -->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-gis">
+            <div class="portfolio-wrap">
+              <div class="portfolio-placeholder">
+                <i class="bi bi-water"></i>
+                <span>ALERTA CAUDAL</span>
+              </div>
+              <div class="portfolio-links">
+                <a href="https://dannlebeau.github.io/alerta-caudal/" title="Ver proyecto" target="_blank"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Riesgo Incendios -->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-gis">
+            <div class="portfolio-wrap">
+              <div class="portfolio-placeholder">
+                <i class="bi bi-fire"></i>
+                <span>RIESGO INCENDIOS</span>
+              </div>
+              <div class="portfolio-links">
+                <a href="https://dannlebeau.github.io/riesgo-incendios/" title="Ver proyecto" target="_blank"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mappin Hub -->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-gis filter-stack">
+            <div class="portfolio-wrap">
+              <div class="portfolio-placeholder">
+                <i class="bi bi-buildings"></i>
+                <span>MAPPIN HUB</span>
+              </div>
+              <div class="portfolio-links">
+                <a href="https://github.com/dannlebeau/mapping-hub" title="GitHub" target="_blank"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- PEZC Valparaíso -->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-gis">
+            <div class="portfolio-wrap">
+              <div class="portfolio-placeholder">
+                <i class="bi bi-tsunami"></i>
+                <span>PEZC VALPARAÍSO</span>
+              </div>
+              <div class="portfolio-links">
+              </div>
+            </div>
+          </div>
+
+          <!-- Visor GIS Atlas -->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-gis">
+            <div class="portfolio-wrap">
+              <div class="portfolio-placeholder">
+                <i class="bi bi-map"></i>
+                <span>VISOR GIS ATLAS</span>
+              </div>
+              <div class="portfolio-links">
+                <a href="https://github.com/dannlebeau/visor-gis-atlas" title="GitHub" target="_blank"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interfaz Huella Local -->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-gis">
+            <div class="portfolio-wrap">
+              <div class="portfolio-placeholder">
+                <i class="bi bi-geo-alt"></i>
+                <span>INTERFAZ HUELLA LOCAL</span>
+              </div>
+              <div class="portfolio-links">
+                <a href="https://github.com/dannlebeau/interfaz-huella-local" title="GitHub" target="_blank"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Water Dash -->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-gis filter-data">
+            <div class="portfolio-wrap">
+              <div class="portfolio-placeholder">
+                <i class="bi bi-droplet-half"></i>
+                <span>WATER DASH</span>
+              </div>
+              <div class="portfolio-links">
+                <a href="https://dannlebeau.github.io/water-dash/" title="Ver proyecto" target="_blank"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- LAC Map -->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-gis">
+            <div class="portfolio-wrap">
+              <div class="portfolio-placeholder">
+                <i class="bi bi-globe-americas"></i>
+                <span>LAC MAP</span>
+              </div>
+              <div class="portfolio-links">
+                <a href="https://dannlebeau.github.io/lacmap.github.io/" title="Ver proyecto" target="_blank"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Viajero Smart -->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-data filter-stack">
+            <div class="portfolio-wrap">
+              <div class="portfolio-placeholder">
+                <i class="bi bi-signpost-split"></i>
+                <span>VIAJERO SMART</span>
+              </div>
+              <div class="portfolio-links">
+                <a href="https://github.com/dannlebeau/viajero-smart" title="GitHub" target="_blank"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mercado Eficiente -->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-stack">
+            <div class="portfolio-wrap">
+              <div class="portfolio-placeholder">
+                <i class="bi bi-shop"></i>
+                <span>MERCADO EFICIENTE</span>
+              </div>
+              <div class="portfolio-links">
+                <a href="https://github.com/dannlebeau/mercado-eficiente-app" title="GitHub" target="_blank"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Geopolis web -->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-stack">
+            <div class="portfolio-wrap">
+              <div class="portfolio-placeholder">
+                <i class="bi bi-building"></i>
+                <span>GEOPOLIS WEB</span>
+              </div>
+              <div class="portfolio-links">
+                <a href="https://github.com/dannlebeau/geopolis" title="GitHub" target="_blank"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Publicación -->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-research">
+            <div class="portfolio-wrap">
+              <img src="assets/img/cover_issue_9.jpg" class="img-fluid" alt="Publicación Terra Australis">
+              <div class="portfolio-links">
+                <a href="assets/img/cover_issue_9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Accesibilidad Espacial — Revista Terra Australis"><i class="bx bx-plus"></i></a>
+                <a href="https://www.revistaterraaustralis.cl/index.php/rgch/article/view/122" title="Leer artículo" target="_blank"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ── Detail cards by theme ── -->
+
+        <!-- GIS Interfaces -->
+        <div class="row mt-5 g-3" data-aos="fade-up">
+          <div class="col-12">
+            <h5 style="font-size:0.72rem;text-transform:uppercase;letter-spacing:1.5px;color:#00adb5;font-weight:700;margin-bottom:18px;"><i class="bi bi-map-fill me-1"></i> Interfaces GIS</h5>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="feat-card">
+              <div class="icon"><i class="bi bi-water"></i></div>
+              <h4>Alerta Caudal</h4>
+              <p>Simulador de inundación: dibuja zonas de cobertura por nivel de caudal e impacto en infraestructura crítica — vías, hospitales, colegios.</p>
+              <div class="tech-tags mb-2"><span class="tech-tag">Leaflet.js</span><span class="tech-tag">JavaScript</span><span class="tech-tag">GeoJSON</span></div>
+              <a href="https://dannlebeau.github.io/alerta-caudal/" target="_blank">Live demo →</a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="feat-card">
+              <div class="icon"><i class="bi bi-fire"></i></div>
+              <h4>Riesgo Incendios</h4>
+              <p>Análisis de riesgo forestal y urbano: cobertura vegetal, hidrantes, accesibilidad vial y cuarteles de bomberos en un mapa interactivo.</p>
+              <div class="tech-tags mb-2"><span class="tech-tag">Leaflet.js</span><span class="tech-tag">JavaScript</span><span class="tech-tag">Turf.js</span></div>
+              <a href="https://dannlebeau.github.io/riesgo-incendios/" target="_blank">Live demo →</a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="feat-card">
+              <div class="icon"><i class="bi bi-map"></i></div>
+              <h4>Visor GIS Atlas</h4>
+              <p>Visor cartográfico multiestilo con capas temáticas intercambiables y soporte de fuentes vectoriales propias.</p>
+              <div class="tech-tags mb-2"><span class="tech-tag">JavaScript</span><span class="tech-tag">Leaflet.js</span><span class="tech-tag">Vector Tiles</span></div>
+              <a href="https://github.com/dannlebeau/visor-gis-atlas" target="_blank">GitHub →</a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="feat-card">
+              <div class="icon"><i class="bi bi-geo-alt-fill"></i></div>
+              <h4>Interfaz Huella Local</h4>
+              <p>Interfaz geoespacial para proyectos de diagnóstico territorial desarrollados en Fundación Huella Local (CMPC, MINDES, Los Andes).</p>
+              <div class="tech-tags mb-2"><span class="tech-tag">Leaflet.js</span><span class="tech-tag">Python</span><span class="tech-tag">QGIS</span></div>
+              <a href="https://github.com/dannlebeau/interfaz-huella-local" target="_blank">GitHub →</a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="feat-card">
+              <div class="icon"><i class="bi bi-droplet-half"></i></div>
+              <h4>Water Dash</h4>
+              <p>Dashboard hídrico con visualización de datos de caudal en tiempo real, gráficos de series temporales y alerta por umbral.</p>
+              <div class="tech-tags mb-2"><span class="tech-tag">TypeScript</span><span class="tech-tag">Leaflet.js</span><span class="tech-tag">Charts</span></div>
+              <a href="https://dannlebeau.github.io/water-dash/" target="_blank">Live demo →</a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="feat-card">
+              <div class="icon"><i class="bi bi-globe-americas"></i></div>
+              <h4>LAC Map</h4>
+              <p>Mapa interactivo de América Latina y el Caribe — desarrollado en el contexto del proyecto SomosLAC (GIZ/IDOM).</p>
+              <div class="tech-tags mb-2"><span class="tech-tag">JavaScript</span><span class="tech-tag">Leaflet.js</span><span class="tech-tag">ArcGIS Online</span></div>
+              <a href="https://dannlebeau.github.io/lacmap.github.io/" target="_blank">Live demo →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Datos Territoriales -->
+        <div class="row mt-4 g-3" data-aos="fade-up">
+          <div class="col-12">
+            <h5 style="font-size:0.72rem;text-transform:uppercase;letter-spacing:1.5px;color:#00adb5;font-weight:700;margin-bottom:18px;"><i class="bi bi-database-fill me-1"></i> Datos Territoriales</h5>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="feat-card">
+              <div class="icon"><i class="bi bi-signpost-split"></i></div>
+              <h4>Viajero Smart</h4>
+              <p>App de planificación de rutas inteligente con integración de datos de transporte, puntos de interés y análisis de accesibilidad espacial.</p>
+              <div class="tech-tags mb-2"><span class="tech-tag">JavaScript</span><span class="tech-tag">Routing</span><span class="tech-tag">OSM</span></div>
+              <a href="https://github.com/dannlebeau/viajero-smart" target="_blank">GitHub →</a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="feat-card">
+              <div class="icon"><i class="bi bi-buildings"></i></div>
+              <h4>Mappin Hub</h4>
+              <p>Plataforma GIS multicliente para municipios: acceso por token, permisos en tiempo real con Supabase, panel admin CRUD y portal por comuna.</p>
+              <div class="tech-tags mb-2"><span class="tech-tag">Supabase</span><span class="tech-tag">Vanilla JS</span><span class="tech-tag">PostgreSQL</span></div>
+              <a href="https://github.com/dannlebeau/mapping-hub" target="_blank">GitHub →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Full Stack -->
+        <div class="row mt-4 g-3" data-aos="fade-up">
+          <div class="col-12">
+            <h5 style="font-size:0.72rem;text-transform:uppercase;letter-spacing:1.5px;color:#00adb5;font-weight:700;margin-bottom:18px;"><i class="bi bi-laptop me-1"></i> Full Stack</h5>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="feat-card">
+              <div class="icon"><i class="bi bi-shop"></i></div>
+              <h4>Mercado Eficiente</h4>
+              <p>Interfaz web para visualización rápida de datos de mercado: filtros dinámicos, tablas interactivas y dashboard de indicadores.</p>
+              <div class="tech-tags mb-2"><span class="tech-tag">TypeScript</span><span class="tech-tag">React</span><span class="tech-tag">REST API</span></div>
+              <a href="https://github.com/dannlebeau/mercado-eficiente-app" target="_blank">GitHub →</a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="feat-card">
+              <div class="icon"><i class="bi bi-building"></i></div>
+              <h4>Geopolis Web</h4>
+              <p>Web corporativa para Geopolis Consultores — presentación de servicios de consultoría territorial y proyectos de inversión pública.</p>
+              <div class="tech-tags mb-2"><span class="tech-tag">HTML</span><span class="tech-tag">CSS</span><span class="tech-tag">JavaScript</span></div>
+              <a href="https://github.com/dannlebeau/geopolis" target="_blank">GitHub →</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======= Services ======= -->
+    <section id="services" class="services">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>What I do</h2>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
+            <div class="icon"><i class="bi bi-globe2"></i></div>
+            <h4 class="title">Geographic Web Interfaces</h4>
+            <p class="description">Interactive web maps with Leaflet, ArcGIS Online and custom JS — connected to real spatial databases.</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon"><i class="bi bi-cpu"></i></div>
+            <h4 class="title">Spatial Data Processing</h4>
+            <p class="description">Geoprocessing pipelines with Python (GeoPandas, Shapely), R and QGIS/ArcGIS ModelBuilder for large geodatasets.</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon"><i class="bi bi-graph-up-arrow"></i></div>
+            <h4 class="title">Territorial Analysis</h4>
+            <p class="description">Urban diagnostics, risk assessment, land-use change, climate vulnerability and socioeconomic evaluation of public investment projects.</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
+            <div class="icon"><i class="bi bi-database-gear"></i></div>
+            <h4 class="title">Spatial Databases</h4>
+            <p class="description">PostgreSQL + PostGIS, Oracle Spatial and cloud backends (Supabase) for real-time geospatial APIs.</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
+            <div class="icon"><i class="bi bi-layers"></i></div>
+            <h4 class="title">Cartography</h4>
+            <p class="description">Technical cartography for SEIA environmental assessments, PLADECOs, master plans and urban research.</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
+            <div class="icon"><i class="bi bi-lightning-charge"></i></div>
+            <h4 class="title">GIS Automation</h4>
+            <p class="description">Python/JS scripts for format conversion (lyr→GeoJSON), batch geoprocessing and spatial ETL pipelines.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======= Contact ======= -->
     <section id="contact" class="contact">
       <div class="container">
 
         <div class="section-title">
           <h2>Contact</h2>
-          <!-- 
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. 
-            Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. 
-            Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-            -->
         </div>
 
         <div class="row" data-aos="fade-in">
@@ -794,26 +1015,14 @@
               <div class="address">
                 <i class="bi bi-geo-alt"></i>
                 <h4>Location:</h4>
-                <p>Madrid, Spain</p>
+                <p>Barcelona, Spain / Santiago, Chile</p>
               </div>
-
               <div class="email">
                 <i class="bi bi-envelope"></i>
                 <h4>Email:</h4>
-                <p>jcordovafredes@icloud.com</p>
+                <p>legeographe@proton.me</p>
               </div>
-
-              <div class="phone">
-                <i class="bi bi-phone"></i>
-                <h4>Call:</h4>
-                <p>+34 675 80 25 36</p>
-              </div>
-              <!-- direction-->
-              <!-- 
-              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
-              -->
             </div>
-
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
@@ -824,16 +1033,16 @@
                   <input type="text" name="name" class="form-control" id="name" required>
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="name">Your Email</label>
+                  <label for="email">Your Email</label>
                   <input type="email" class="form-control" name="email" id="email" required>
                 </div>
               </div>
               <div class="form-group">
-                <label for="name">Subject</label>
+                <label for="subject">Subject</label>
                 <input type="text" class="form-control" name="subject" id="subject" required>
               </div>
               <div class="form-group">
-                <label for="name">Message</label>
+                <label for="message">Message</label>
                 <textarea class="form-control" name="message" rows="10" required></textarea>
               </div>
               <div class="my-3">
@@ -848,25 +1057,11 @@
         </div>
 
       </div>
-    </section><!-- End Contact Section -->
+    </section>
 
-  </main><!-- End #main -->
+  </main>
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="container">
-      <div class="copyright">
-        &copy; 2023 Copyright <strong><span>iPortfolio</span></strong>
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
-    </div>
-  </footer><!-- End  Footer -->
+  <!-- Template: BootstrapMade iPortfolio — https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
@@ -884,6 +1079,68 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
-</body>
+  <script>
+    // ── Copyright year ──
+    (function () {
+      var el = document.getElementById('copy-year');
+      if (el) el.textContent = new Date().getFullYear();
+    })();
 
+    // ── Dynamic experience counter since graduation (Jan 3, 2019) ──
+    (function () {
+      const grad = new Date(2019, 0, 3);
+      const now  = new Date();
+      let years  = now.getFullYear() - grad.getFullYear();
+      let months = now.getMonth()    - grad.getMonth();
+      if (now.getDate() < grad.getDate()) months--;
+      if (months < 0) { years--; months += 12; }
+
+      const elY = document.getElementById('exp-years');
+      const elM = document.getElementById('exp-months');
+      if (elY) elY.textContent = years + ' yrs';
+      if (elM && months > 0) elM.textContent = months + ' mo';
+    })();
+
+    // ── Sidebar collapse when hero leaves viewport ──
+    (function () {
+      const hero   = document.getElementById('hero');
+      const header = document.getElementById('header');
+      const peek   = document.getElementById('sidebar-peek');
+      if (!hero || !header) return;
+
+      let userForced = false; // track manual toggle
+
+      const obs = new IntersectionObserver(function (entries) {
+        if (userForced) return;
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) {
+            document.body.classList.add('sidebar-off');
+          } else {
+            document.body.classList.remove('sidebar-off');
+            userForced = false;
+          }
+        });
+      }, { threshold: 0.05 });
+
+      obs.observe(hero);
+
+      // Peek tab: click to temporarily show sidebar
+      if (peek) {
+        peek.addEventListener('click', function () {
+          userForced = true;
+          document.body.classList.remove('sidebar-off');
+          // Auto-hide again after 4 s of inactivity if still below hero
+          setTimeout(function () {
+            const heroRect = hero.getBoundingClientRect();
+            if (heroRect.bottom < 0) {
+              document.body.classList.add('sidebar-off');
+              userForced = false;
+            }
+          }, 4000);
+        });
+      }
+    })();
+  </script>
+
+</body>
 </html>
