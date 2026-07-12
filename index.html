@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>José Córdova-Fredes | GeoTech Developer</title>
-  <meta content="Geographer, GIS Developer, Territorial Analyst — building geographic web interfaces with Leaflet, ArcGIS, Python and JavaScript." name="description">
-  <meta content="GIS, geographer, Leaflet, ArcGIS, Python, JavaScript, territorial analysis, spatial data" name="keywords">
+  <title>José Córdova-Fredes | Urbaniste & Développeur GeoTech</title>
+  <meta content="Urbaniste et planificateur territorial, je conçois des viseurs territoriaux interactifs, des plateformes de données géospatiales et des analyses spatiales avec ArcGIS, Leaflet, Python et JavaScript." name="description">
+  <meta content="urbanisme, planification territoriale, GIS, Leaflet, ArcGIS, Python, JavaScript, analyse spatiale, viseurs GIS, diagnostic urbain" name="keywords">
 
   <!-- Favicons -->
   <link href="assets/img/world.png" rel="icon">
@@ -173,18 +173,52 @@
     }
     #sidebar-peek i { font-size: 1rem; }
 
-    /* ── Portfolio placeholder (projects without screenshot) ── */
-    .portfolio-placeholder {
+    /* ── Project icon cards ── */
+    .project-card { cursor: pointer; }
+    .project-card-inner {
       background: linear-gradient(135deg, #060f1e 0%, #0d2137 100%);
       height: 210px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 8px;
+      border: 1px solid rgba(0,173,181,0.12);
+      border-radius: 8px;
+      transition: border-color .3s, transform .3s, box-shadow .3s;
     }
-    .portfolio-placeholder i { font-size: 2.6rem; color: #00adb5; }
-    .portfolio-placeholder span { font-size: 0.8rem; color: #888; font-weight: 600; letter-spacing: .4px; }
+    .project-card:hover .project-card-inner {
+      border-color: rgba(0,173,181,0.55);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,173,181,0.08);
+    }
+    .project-card-icon { font-size: 2.8rem; color: #00adb5; }
+    .project-card-name { font-size: 0.78rem; font-weight: 700; color: #d9e2ef; letter-spacing: .5px; text-transform: uppercase; text-align: center; padding: 0 12px; }
+    .project-card-cat { font-size: 0.67rem; color: #556677; }
+    .project-card-hint { font-size: 0.68rem; color: rgba(0,173,181,0.45); margin-top: 6px; }
+    .project-card:hover .project-card-hint { color: #00adb5; }
+
+    /* ── Language switcher ── */
+    .lang-switcher {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 20px 12px;
+    }
+    .lang-btn {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 4px;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.67rem;
+      font-weight: 700;
+      letter-spacing: .6px;
+      padding: 3px 9px;
+      cursor: pointer;
+      transition: border-color .2s, color .2s, background .2s;
+    }
+    .lang-btn:hover { border-color: rgba(0,173,181,0.5); color: #00adb5; }
+    .lang-btn.active { border-color: #00adb5; color: #00adb5; background: rgba(0,173,181,0.1); }
 
     /* ── Sidebar copyright ── */
     .sidebar-footer {
@@ -229,18 +263,24 @@
 
       <nav id="navbar" class="nav-menu navbar">
         <ul>
-          <li><a href="#hero"      class="nav-link scrollto active"><i class="bx bx-home"></i>         <span>Home</span></a></li>
-          <li><a href="#about"     class="nav-link scrollto"><i class="bx bx-user"></i>                 <span>About</span></a></li>
-          <li><a href="#skills"    class="nav-link scrollto"><i class="bx bx-code-alt"></i>             <span>Skills</span></a></li>
-          <li><a href="#resume"    class="nav-link scrollto"><i class="bx bx-file-blank"></i>           <span>Resume</span></a></li>
-          <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i>         <span>Projects</span></a></li>
-          <li><a href="#contact"   class="nav-link scrollto"><i class="bx bx-envelope"></i>             <span>Contact</span></a></li>
+          <li><a href="#hero"      class="nav-link scrollto active"><i class="bx bx-home"></i>         <span data-i18n="nav.home">Accueil</span></a></li>
+          <li><a href="#about"     class="nav-link scrollto"><i class="bx bx-user"></i>                 <span data-i18n="nav.about">À propos</span></a></li>
+          <li><a href="#skills"    class="nav-link scrollto"><i class="bx bx-code-alt"></i>             <span data-i18n="nav.skills">Compétences</span></a></li>
+          <li><a href="#resume"    class="nav-link scrollto"><i class="bx bx-file-blank"></i>           <span data-i18n="nav.resume">Parcours</span></a></li>
+          <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i>         <span data-i18n="nav.projects">Projets</span></a></li>
+          <li><a href="#contact"   class="nav-link scrollto"><i class="bx bx-envelope"></i>             <span data-i18n="nav.contact">Contact</span></a></li>
         </ul>
       </nav>
 
+      <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+      </div>
+
       <div class="sidebar-footer">
         <p>&copy; <span id="copy-year"></span> José Córdova-Fredes</p>
-        <p>GeoTech Developer</p>
+        <p data-i18n="sidebar.tagline">Urbaniste · Développeur GeoTech</p>
       </div>
     </div>
   </header>
@@ -249,7 +289,7 @@
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <div class="hero-container" data-aos="fade-in">
       <h1>José Córdova-Fredes</h1>
-      <p>I'm a <span class="typed" data-typed-items="GIS Developer, Geographer, Territorial Analyst, Web Map Builder, Spatial Data Scientist"></span></p>
+      <p><span data-i18n="hero.iam">Je suis</span> <span class="typed" data-typed-items="Urbaniste,Analyste Territorial,Développeur GIS,Cartographe Web,Data Scientist Spatial"></span></p>
     </div>
   </section>
 
@@ -260,8 +300,8 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>About</h2>
-          <p>Geographer and GIS developer with 7+ years of experience turning spatial data into actionable web interfaces. I bridge territorial analysis and software development — from Python geoprocessing scripts to interactive Leaflet/ArcGIS Online maps deployed for public and private clients across Chile and Latin America. Currently pursuing a PhD in Territorial Planning at the Universitat de Barcelona.</p>
+          <h2 data-i18n="about.title">À propos</h2>
+          <p data-i18n="about.bio">Urbaniste et planificateur territorial avec plus de 7 ans d'expérience en analyse spatiale, diagnostic urbain et développement de technologies géographiques. J'ai travaillé au Chili, en Espagne et sur des projets d'envergure latino-américaine, notamment des plans communaux de développement, des évaluations de vulnérabilité climatique et des viseurs territoriaux interactifs pour des organismes publics, des cabinets de conseil internationaux et des fondations. Le SIG est mon outil central, que je combine avec le développement web pour rendre l'analyse territoriale plus accessible et utile à la décision. Actuellement doctorant en Planification Territoriale et Gestion Environnementale à l'Universitat de Barcelona.</p>
         </div>
 
         <div class="row">
@@ -269,19 +309,19 @@
             <img src="assets/img/JCF_2.jpeg" class="img-fluid" alt="José Córdova-Fredes">
           </div>
           <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-            <h3>Geographer &amp; GeoTech Developer</h3>
+            <h3 data-i18n="about.h3">Urbaniste &amp; Développeur GeoTech</h3>
             <div class="row">
               <div class="col-lg-6">
                 <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>1 Sep 1993</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Barcelona / Santiago</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong data-i18n="about.birthday">Date de naissance :</strong> <span>1 Sep 1993</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong data-i18n="about.city">Ville :</strong> <span>Barcelona / Santiago</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong data-i18n="about.freelance">Freelance :</strong> <span data-i18n="about.available">Disponible</span></li>
                 </ul>
               </div>
               <div class="col-lg-6">
                 <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>PhD (in progress)</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>legeographe@proton.me</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong data-i18n="about.degree">Diplôme :</strong> <span data-i18n="about.degree.val">Doctorat (en cours)</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong data-i18n="about.email">E-mail :</strong> <span>legeographe@proton.me</span></li>
                 </ul>
               </div>
             </div>
@@ -292,11 +332,11 @@
                 <div class="stat-box">
                   <span class="num" id="exp-years">—</span>
                   <span class="num-sub" id="exp-months"></span>
-                  <p>Professional exp.</p>
+                  <p data-i18n="stats.exp">Exp. professionnelle</p>
                 </div>
               </div>
-              <div class="col-4"><div class="stat-box"><span class="num">15+</span><p>Projects delivered</p></div></div>
-              <div class="col-4"><div class="stat-box"><span class="num">3</span><p>Countries</p></div></div>
+              <div class="col-4"><div class="stat-box"><span class="num">15+</span><p data-i18n="stats.projects">Projets livrés</p></div></div>
+              <div class="col-4"><div class="stat-box"><span class="num">3</span><p data-i18n="stats.countries">Pays</p></div></div>
             </div>
           </div>
         </div>
@@ -309,8 +349,8 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Technical Skills</h2>
-          <p>Full-stack spatial development stack — from raw geodata to live web maps.</p>
+          <h2 data-i18n="skills.title">Compétences techniques</h2>
+          <p data-i18n="skills.subtitle">Stack de développement spatial full-stack, de la géodonnée brute aux cartes web en direct.</p>
         </div>
 
         <div class="row" data-aos="fade-up">
@@ -407,7 +447,7 @@
         <div class="row mt-4" data-aos="fade-up" data-aos-delay="100">
           <div class="col-12">
             <h5 style="font-size:0.72rem;text-transform:uppercase;letter-spacing:1.5px;color:#00adb5;font-weight:700;margin-bottom:16px;">
-              <i class="bi bi-translate me-1"></i> Languages
+              <i class="bi bi-translate me-1"></i> <span data-i18n="skills.lang">Langues</span>
             </h5>
           </div>
           <div class="col-lg-6">
@@ -440,8 +480,8 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Resume</h2>
-          <p>Geographer with a PhD in progress, specialized in geographic data analysis, geospatial web development and territorial intelligence. I develop spatial interfaces using ArcGIS, Leaflet and custom JavaScript; process geodata with Python and R; and design full-stack solutions that link databases, APIs and interactive maps for public and private clients.</p>
+          <h2 data-i18n="resume.title">Parcours</h2>
+          <p data-i18n="resume.bio">Urbaniste et planificateur territorial avec un doctorat en cours, spécialisé en analyse de données géographiques, développement web géospatial et intelligence territoriale. Je construis des viseurs territoriaux et plateformes de données spatiales avec ArcGIS, Leaflet et JavaScript ; je traite des géodonnées avec Python et R ; et je conçois des solutions full-stack reliant bases de données, APIs et cartes interactives pour des clients publics et privés au Chili, en Espagne et en Amérique latine.</p>
         </div>
 
         <div class="row">
@@ -449,35 +489,35 @@
           <!-- Left col: Academic Formation -->
           <div class="col-lg-6" data-aos="fade-up">
 
-            <h3 class="resume-title">Academic Formation</h3>
+            <h3 class="resume-title" data-i18n="resume.academic">Formation académique</h3>
 
             <div class="resume-item">
-              <h4>PhD — Territorial Planning &amp; Environmental Management</h4>
-              <h5>Sep 2025 – present</h5>
-              <p><em>Universitat de Barcelona, Barcelona, Spain</em></p>
-              <p>Program: Geografía, Planificación Territorial y Gestión Ambiental. Expected completion Nov 2029.</p>
+              <h4 data-i18n="edu.phd.title">Doctorat en Planification Territoriale et Gestion Environnementale</h4>
+              <h5 data-i18n="edu.phd.date">Sept 2025 – présent</h5>
+              <p><em data-i18n="edu.phd.place">Universitat de Barcelona, Barcelone, Espagne</em></p>
+              <p data-i18n="edu.phd.desc">Programme : Géographie, Planification Territoriale et Gestion Environnementale. Fin prévue nov. 2029.</p>
             </div>
 
             <div class="resume-item">
-              <h4>Master's — Territorial Planning &amp; Environmental Management</h4>
-              <h5>Feb 2021 – Mar 2022</h5>
-              <p><em>Universitat de Barcelona, Barcelona, Spain</em></p>
-              <p>Thesis: "Midiendo la ciudad compacta. Desafíos para la planificación territorial en Santiago de Chile."</p>
+              <h4 data-i18n="edu.master.title">Master en Planification Territoriale et Gestion Environnementale</h4>
+              <h5>Fév 2021 – Mars 2022</h5>
+              <p><em data-i18n="edu.master.place">Universitat de Barcelona, Barcelone, Espagne</em></p>
+              <p data-i18n="edu.master.desc">Mémoire : « Mesurer la ville compacte. Défis pour la planification territoriale à Santiago du Chili. »</p>
               <div class="tech-tags"><span class="tech-tag">Urban Analysis</span><span class="tech-tag">Compact City</span><span class="tech-tag">GIS</span></div>
             </div>
 
             <div class="resume-item">
-              <h4>Bachelor's — Geography <small style="color:#00adb5;font-size:0.75rem;font-weight:600;">(Distinction)</small></h4>
-              <h5>Mar 2012 – Jan 2019</h5>
+              <h4 data-i18n="edu.bachelor.title">Licence en Géographie <small style="color:#00adb5;font-size:0.75rem;font-weight:600;">(Distinction)</small></h4>
+              <h5>Mars 2012 – Jan 2019</h5>
               <p><em>Pontificia Universidad Católica de Chile, Santiago</em></p>
-              <p>Thesis defended Jan 3, 2019 — Land-use change Curepto commune 1986–2016.</p>
+              <p data-i18n="edu.bachelor.desc">Mémoire soutenu le 3 janv. 2019 : Évolution de l'usage des terres dans la commune de Curepto, 1986–2016.</p>
             </div>
 
-            <h3 class="resume-title mt-4">Publication</h3>
+            <h3 class="resume-title mt-4" data-i18n="resume.pub">Publication</h3>
             <div class="pub-card">
               <h5>Accesibilidad Espacial en la comuna de Quinta Normal</h5>
-              <p>Revista Geográfica Terra Australis, Vol. 58, ISSN 0719-9562 — Método 2SFCA aplicado a educación, salud y seguridad.</p>
-              <a href="https://www.revistaterraaustralis.cl/index.php/rgch/article/view/122/70" target="_blank" style="color:#00adb5;font-size:0.8rem;">Leer artículo →</a>
+              <p>Revista Geográfica Terra Australis, Vol. 58, ISSN 0719-9562. Método 2SFCA aplicado a educación, salud y seguridad.</p>
+              <a href="https://www.revistaterraaustralis.cl/index.php/rgch/article/view/122/70" target="_blank" style="color:#00adb5;font-size:0.8rem;" data-i18n="pub.read">Lire l'article →</a>
             </div>
 
           </div>
@@ -485,69 +525,69 @@
           <!-- Right col: Experience -->
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
 
-            <h3 class="resume-title">Professional Experience</h3>
+            <h3 class="resume-title" data-i18n="resume.experience">Expérience professionnelle</h3>
 
             <div class="resume-item">
-              <h4>Territorial &amp; Geospatial Consultant</h4>
-              <h5>Nov 2025 – present</h5>
-              <p><em>Geopolis Consultores Ltda., Santiago, Chile</em></p>
-              <p>Formulation and socioeconomic evaluation of public investment projects (SNI/BIP). Geographic analysis and RS management for road paving projects in municipalities.</p>
+              <h4 data-i18n="exp.0.title">Consultant Territorial &amp; Géospatial</h4>
+              <h5 data-i18n="exp.0.date">Nov 2025 – présent</h5>
+              <p><em>Geopolis Consultores Ltda., Santiago, Chili</em></p>
+              <p data-i18n="exp.0.desc">Formulation et évaluation socioéconomique de projets d'investissement public (SNI/BIP). Analyse géographique et gestion de la télédétection pour des projets de pavage routier dans les municipalités.</p>
               <div class="tech-tags"><span class="tech-tag">SNI/BIP</span><span class="tech-tag">Public Investment</span><span class="tech-tag">GIS</span></div>
             </div>
 
             <div class="resume-item">
-              <h4>Territorial Analyst</h4>
-              <h5>May 2025 – Mar 2026</h5>
-              <p><em>Fundación Huella Local, Santiago, Chile</em></p>
-              <p>Led GIS analysis and developed geographic web interfaces for projects with CMPC (Radiografía del Agua), Ministry of Social Development, and Municipality of Los Andes (Climate Change Action Plan — vulnerability &amp; GEI emissions).</p>
+              <h4 data-i18n="exp.1.title">Analyste Territorial</h4>
+              <h5>Mai 2025 – Mars 2026</h5>
+              <p><em>Fundación Huella Local, Santiago, Chili</em></p>
+              <p data-i18n="exp.1.desc">Direction des analyses GIS et développement d'interfaces web géographiques pour des projets avec CMPC (Radiografía del Agua), le Ministère du Développement Social et la Municipalité de Los Andes (Plan d'Action Climatique : vulnérabilité et émissions de GES).</p>
               <div class="tech-tags"><span class="tech-tag">Leaflet.js</span><span class="tech-tag">Python</span><span class="tech-tag">QGIS</span><span class="tech-tag">Climate Analysis</span></div>
             </div>
 
             <div class="resume-item">
-              <h4>Territorial Analysis Specialist</h4>
-              <h5>Jun 2024 – Mar 2025</h5>
-              <p><em>IDOM Consulting, Engineering &amp; Architecture, Santiago, Chile</em></p>
-              <p>Built interactive geographic interfaces with Leaflet + JS and ArcGIS Online/Arcade for projects including SomosLAC (GIZ), PEZC Valparaíso (Port Authority) and Al Ahsa Local Plan (Saudi Arabia). Developed Python/JS scripts for lyr→GeoJSON/Shapefile conversion and mobility modelling.</p>
+              <h4 data-i18n="exp.2.title">Spécialiste en Analyse Territoriale</h4>
+              <h5>Juin 2024 – Mars 2025</h5>
+              <p><em>IDOM Consulting, Engineering &amp; Architecture, Santiago, Chili</em></p>
+              <p data-i18n="exp.2.desc">Développement d'interfaces géographiques interactives avec Leaflet + JS et ArcGIS Online/Arcade pour des projets incluant SomosLAC (GIZ), PEZC Valparaíso (Autorité Portuaire) et Al Ahsa Local Plan (Arabie Saoudite). Développement de scripts Python/JS pour la conversion lyr→GeoJSON/Shapefile et modélisation de la mobilité.</p>
               <div class="tech-tags"><span class="tech-tag">Leaflet.js</span><span class="tech-tag">ArcGIS Online</span><span class="tech-tag">Arcade</span><span class="tech-tag">Python</span><span class="tech-tag">Node.js</span><span class="tech-tag">WordPress</span><span class="tech-tag">Vercel</span></div>
             </div>
 
             <div class="resume-item">
-              <h4>Geographer / PLADECO Consultant</h4>
-              <h5>Jan 2024 – Sep 2024</h5>
-              <p><em>Mapocho Consultores, Santiago, Chile</em></p>
-              <p>Led the creation of the territorial information system and specialized cartography for the Punitaqui Communal Development Plan (PLADECO 2024–2028) using ArcGIS Pro.</p>
+              <h4 data-i18n="exp.3.title">Géographe / Consultant PLADECO</h4>
+              <h5>Jan 2024 – Sept 2024</h5>
+              <p><em>Mapocho Consultores, Santiago, Chili</em></p>
+              <p data-i18n="exp.3.desc">Direction de la création du système d'information territorial et de la cartographie spécialisée pour le Plan de Développement Communal de Punitaqui (PLADECO 2024–2028) avec ArcGIS Pro.</p>
               <div class="tech-tags"><span class="tech-tag">ArcGIS Pro</span><span class="tech-tag">PLADECO</span><span class="tech-tag">Territorial Planning</span></div>
             </div>
 
             <div class="resume-item">
-              <h4>Research Associate — Climate Change</h4>
-              <h5>Jan 2024 – May 2024</h5>
-              <p><em>Centro EULA-Chile, Universidad de Concepción (FAO project)</em></p>
-              <p>Characterized climate vulnerability of Biobío Region for the Regional Climate Change Action Plan (PARCC).</p>
+              <h4 data-i18n="exp.4.title">Chercheur Associé en Changement Climatique</h4>
+              <h5>Jan 2024 – Mai 2024</h5>
+              <p><em>Centro EULA-Chile, Universidad de Concepción (projet FAO)</em></p>
+              <p data-i18n="exp.4.desc">Caractérisation de la vulnérabilité climatique de la Région del Biobío pour le Plan d'Action Régional sur le Changement Climatique (PARCC).</p>
               <div class="tech-tags"><span class="tech-tag">Vulnerability Assessment</span><span class="tech-tag">Climate Change</span><span class="tech-tag">R</span></div>
             </div>
 
             <div class="resume-item">
-              <h4>GIS Implementer</h4>
-              <h5>Jun 2021 – Sep 2022</h5>
-              <p><em>XYGO (Mapas Digitales S.A.), Santiago, Chile</em></p>
-              <p>Developed and integrated geospatial functionalities in the corporate portal of a sanitary company using ESRI infrastructure. Managed geographic and alphanumeric database migration via Oracle SQL Developer.</p>
+              <h4 data-i18n="exp.5.title">Chargé d'Implémentation GIS</h4>
+              <h5>Juin 2021 – Sept 2022</h5>
+              <p><em>XYGO (Mapas Digitales S.A.), Santiago, Chili</em></p>
+              <p data-i18n="exp.5.desc">Développement et intégration de fonctionnalités géospatiales dans le portail institutionnel d'une société sanitaire utilisant l'infrastructure ESRI. Gestion de la migration de bases de données géographiques et alphanumériques via Oracle SQL Developer.</p>
               <div class="tech-tags"><span class="tech-tag">ArcGIS</span><span class="tech-tag">Oracle SQL</span><span class="tech-tag">ESRI</span></div>
             </div>
 
             <div class="resume-item">
-              <h4>Territorial Analyst</h4>
-              <h5>Feb 2020 – Aug 2020</h5>
-              <p><em>Ilustre Municipalidad de Santiago, Santiago, Chile</em></p>
-              <p>Field surveys, GIS cartography and qualitative analysis for the Technical Assistance project on intervention standards for typical zones of Santiago commune.</p>
+              <h4 data-i18n="exp.6.title">Analyste Territorial</h4>
+              <h5>Fév 2020 – Août 2020</h5>
+              <p><em>Ilustre Municipalidad de Santiago, Santiago, Chili</em></p>
+              <p data-i18n="exp.6.desc">Enquêtes terrain, cartographie GIS et analyse qualitative pour le projet d'assistance technique sur les normes d'intervention dans les zones typiques de la commune de Santiago.</p>
               <div class="tech-tags"><span class="tech-tag">QGIS</span><span class="tech-tag">Participatory Planning</span><span class="tech-tag">Cartography</span></div>
             </div>
 
             <div class="resume-item">
-              <h4>Independent Geographer &amp; Consultant</h4>
-              <h5>Mar 2019 – present</h5>
-              <p><em>Autonomous, Chile / Spain</em></p>
-              <p>Territorial diagnostics, climate and environmental assessments. Development of geospatial web viewers with Leaflet, JavaScript and Node.js. GIS analysis for SEIA environmental impact assessments.</p>
+              <h4 data-i18n="exp.7.title">Géographe Indépendant &amp; Consultant</h4>
+              <h5 data-i18n="exp.7.date">Mars 2019 – présent</h5>
+              <p><em data-i18n="exp.7.place">Indépendant, Chili / Espagne</em></p>
+              <p data-i18n="exp.7.desc">Diagnostics territoriaux, évaluations climatiques et environnementales. Développement de viseurs géospatiaux avec Leaflet, JavaScript et Node.js. Analyses GIS pour des études d'impact environnemental (SEIA).</p>
               <div class="tech-tags"><span class="tech-tag">Leaflet.js</span><span class="tech-tag">Node.js</span><span class="tech-tag">QGIS</span><span class="tech-tag">SEIA</span></div>
             </div>
 
@@ -557,8 +597,8 @@
         <!-- ── Technical Formation ── -->
         <div class="row mt-5" data-aos="fade-up">
           <div class="col-12">
-            <h3 class="resume-title">Technical Formation</h3>
-            <p style="color:#aaa;font-size:0.88rem;margin-bottom:28px;">Formación tecnológica en desarrollo full stack, análisis espacial y ciencia de datos aplicada al territorio.</p>
+            <h3 class="resume-title" data-i18n="resume.technical">Formation technique</h3>
+            <p style="color:#aaa;font-size:0.88rem;margin-bottom:28px;" data-i18n="resume.technical.sub">Formation technologique en développement full stack, analyse spatiale et science des données appliqués au territoire.</p>
           </div>
 
           <!-- Con credencial Acreditta -->
@@ -569,7 +609,7 @@
                 <h5>Full Stack JavaScript Developer</h5>
                 <p class="cert-meta">ABRE Capacitación / SENCE · 472 h · Ene–Jun 2024</p>
                 <div class="tech-tags"><span class="tech-tag">React</span><span class="tech-tag">Node.js</span><span class="tech-tag">Express</span><span class="tech-tag">MongoDB</span></div>
-                <a href="https://www.acreditta.com" class="acreditta-badge" target="_blank"><i class="bi bi-patch-check-fill"></i> Credencial Acreditta</a>
+                <a href="https://www.acreditta.com/credential/9c2be16b-1d50-443a-90ea-418adfa20d9e" class="acreditta-badge" target="_blank"><i class="bi bi-patch-check-fill"></i> Credencial Acreditta</a>
               </div>
             </div>
           </div>
@@ -581,7 +621,7 @@
                 <h5>Full Stack Python Developer</h5>
                 <p class="cert-meta">SENCE · 449 h · Abr–Ago 2023</p>
                 <div class="tech-tags"><span class="tech-tag">Django</span><span class="tech-tag">Python</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">REST API</span></div>
-                <a href="https://www.acreditta.com" class="acreditta-badge" target="_blank"><i class="bi bi-patch-check-fill"></i> Credencial Acreditta</a>
+                <a href="https://www.acreditta.com/credential/2508af73-48a9-4a69-a44d-d052f2f18626" class="acreditta-badge" target="_blank"><i class="bi bi-patch-check-fill"></i> Credencial Acreditta</a>
               </div>
             </div>
           </div>
@@ -590,10 +630,10 @@
             <div class="cert-card">
               <div class="cert-icon"><i class="bi bi-shield-lock"></i></div>
               <div class="cert-body">
-                <h5>Ciberseguridad</h5>
+                <h5>Diplomado en Ciberseguridad y Ciberdefensa</h5>
                 <p class="cert-meta">SENCE · Santiago</p>
                 <div class="tech-tags"><span class="tech-tag">Seguridad informática</span><span class="tech-tag">Redes</span><span class="tech-tag">Ethical Hacking</span></div>
-                <a href="https://www.acreditta.com" class="acreditta-badge" target="_blank"><i class="bi bi-patch-check-fill"></i> Credencial Acreditta</a>
+                <a href="https://www.acreditta.com/credential/274cf63c-16a5-4654-b5ed-b70870bd2b17" class="acreditta-badge" target="_blank"><i class="bi bi-patch-check-fill"></i> Credencial Acreditta</a>
               </div>
             </div>
           </div>
@@ -602,10 +642,10 @@
             <div class="cert-card">
               <div class="cert-icon"><i class="bi bi-terminal"></i></div>
               <div class="cert-body">
-                <h5>Sistemas Operativos</h5>
-                <p class="cert-meta">SENCE · Santiago</p>
-                <div class="tech-tags"><span class="tech-tag">Linux</span><span class="tech-tag">Shell</span><span class="tech-tag">Administración</span></div>
-                <a href="https://www.acreditta.com" class="acreditta-badge" target="_blank"><i class="bi bi-patch-check-fill"></i> Credencial Acreditta</a>
+                <h5>Seguridad en Sistemas Operativos</h5>
+                <p class="cert-meta">SENCE · Windows Server & Linux</p>
+                <div class="tech-tags"><span class="tech-tag">Linux</span><span class="tech-tag">Shell</span><span class="tech-tag">Windows Server</span><span class="tech-tag">Administración</span></div>
+                <a href="https://www.acreditta.com/credential/59e50249-4c38-43cf-9b38-fb60e5dabcab" class="acreditta-badge" target="_blank"><i class="bi bi-patch-check-fill"></i> Credencial Acreditta</a>
               </div>
             </div>
           </div>
@@ -665,19 +705,19 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Projects</h2>
-          <p>Interfaces geoespaciales, plataformas territoriales y aplicaciones full stack — construidas con Leaflet, ArcGIS, JavaScript, Python y TypeScript.</p>
+          <h2 data-i18n="portfolio.title">Projets</h2>
+          <p data-i18n="portfolio.subtitle">Interfaces géospatiales, plateformes territoriales et applications full stack construites avec Leaflet, ArcGIS, JavaScript, Python et TypeScript. Cliquez sur un projet pour voir les détails.</p>
         </div>
 
         <!-- Filter -->
         <div class="row" data-aos="fade-up">
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">Todo</li>
-              <li data-filter=".filter-gis">Interfaces GIS</li>
-              <li data-filter=".filter-data">Datos Territoriales</li>
+              <li data-filter="*" class="filter-active" data-i18n="filter.all">Tout</li>
+              <li data-filter=".filter-gis" data-i18n="filter.gis">Interfaces GIS</li>
+              <li data-filter=".filter-data" data-i18n="filter.data">Données Territoriales</li>
               <li data-filter=".filter-stack">Full Stack</li>
-              <li data-filter=".filter-research">Investigación</li>
+              <li data-filter=".filter-research" data-i18n="filter.research">Recherche</li>
             </ul>
           </div>
         </div>
@@ -687,270 +727,148 @@
 
           <!-- Alerta Caudal -->
           <div class="col-lg-4 col-md-6 portfolio-item filter-gis">
-            <div class="portfolio-wrap">
-              <div class="portfolio-placeholder">
-                <i class="bi bi-water"></i>
-                <span>ALERTA CAUDAL</span>
-              </div>
-              <div class="portfolio-links">
-                <a href="https://dannlebeau.github.io/alerta-caudal/" title="Ver proyecto" target="_blank"><i class="bx bx-link"></i></a>
+            <div class="portfolio-wrap project-card" data-project-idx="0" data-bs-toggle="modal" data-bs-target="#projectModal">
+              <div class="project-card-inner">
+                <i class="bi bi-water project-card-icon"></i>
+                <div class="project-card-name">Alerta Caudal</div>
+                <div class="project-card-cat" data-i18n="cat.gis">Interfaces GIS</div>
+                <div class="project-card-hint"><i class="bi bi-zoom-in"></i> <span data-i18n="portfolio.hint">Voir détails</span></div>
               </div>
             </div>
           </div>
 
           <!-- Riesgo Incendios -->
           <div class="col-lg-4 col-md-6 portfolio-item filter-gis">
-            <div class="portfolio-wrap">
-              <div class="portfolio-placeholder">
-                <i class="bi bi-fire"></i>
-                <span>RIESGO INCENDIOS</span>
-              </div>
-              <div class="portfolio-links">
-                <a href="https://dannlebeau.github.io/riesgo-incendios/" title="Ver proyecto" target="_blank"><i class="bx bx-link"></i></a>
+            <div class="portfolio-wrap project-card" data-project-idx="1" data-bs-toggle="modal" data-bs-target="#projectModal">
+              <div class="project-card-inner">
+                <i class="bi bi-fire project-card-icon"></i>
+                <div class="project-card-name">Riesgo Incendios</div>
+                <div class="project-card-cat" data-i18n="cat.gis">Interfaces GIS</div>
+                <div class="project-card-hint"><i class="bi bi-zoom-in"></i> <span data-i18n="portfolio.hint">Voir détails</span></div>
               </div>
             </div>
           </div>
 
           <!-- Mappin Hub -->
           <div class="col-lg-4 col-md-6 portfolio-item filter-gis filter-stack">
-            <div class="portfolio-wrap">
-              <div class="portfolio-placeholder">
-                <i class="bi bi-buildings"></i>
-                <span>MAPPIN HUB</span>
-              </div>
-              <div class="portfolio-links">
-                <a href="https://github.com/dannlebeau/mapping-hub" title="GitHub" target="_blank"><i class="bx bx-link"></i></a>
+            <div class="portfolio-wrap project-card" data-project-idx="2" data-bs-toggle="modal" data-bs-target="#projectModal">
+              <div class="project-card-inner">
+                <i class="bi bi-buildings project-card-icon"></i>
+                <div class="project-card-name">Mappin Hub</div>
+                <div class="project-card-cat" data-i18n="cat.gis_stack">GIS · Full Stack</div>
+                <div class="project-card-hint"><i class="bi bi-zoom-in"></i> <span data-i18n="portfolio.hint">Voir détails</span></div>
               </div>
             </div>
           </div>
 
           <!-- PEZC Valparaíso -->
           <div class="col-lg-4 col-md-6 portfolio-item filter-gis">
-            <div class="portfolio-wrap">
-              <div class="portfolio-placeholder">
-                <i class="bi bi-tsunami"></i>
-                <span>PEZC VALPARAÍSO</span>
-              </div>
-              <div class="portfolio-links">
+            <div class="portfolio-wrap project-card" data-project-idx="3" data-bs-toggle="modal" data-bs-target="#projectModal">
+              <div class="project-card-inner">
+                <i class="bi bi-tsunami project-card-icon"></i>
+                <div class="project-card-name">PEZC Valparaíso</div>
+                <div class="project-card-cat" data-i18n="cat.gis">Interfaces GIS</div>
+                <div class="project-card-hint"><i class="bi bi-zoom-in"></i> <span data-i18n="portfolio.hint">Voir détails</span></div>
               </div>
             </div>
           </div>
 
           <!-- Visor GIS Atlas -->
           <div class="col-lg-4 col-md-6 portfolio-item filter-gis">
-            <div class="portfolio-wrap">
-              <div class="portfolio-placeholder">
-                <i class="bi bi-map"></i>
-                <span>VISOR GIS ATLAS</span>
-              </div>
-              <div class="portfolio-links">
-                <a href="https://github.com/dannlebeau/visor-gis-atlas" title="GitHub" target="_blank"><i class="bx bx-link"></i></a>
+            <div class="portfolio-wrap project-card" data-project-idx="4" data-bs-toggle="modal" data-bs-target="#projectModal">
+              <div class="project-card-inner">
+                <i class="bi bi-map project-card-icon"></i>
+                <div class="project-card-name">Visor GIS Atlas</div>
+                <div class="project-card-cat" data-i18n="cat.gis">Interfaces GIS</div>
+                <div class="project-card-hint"><i class="bi bi-zoom-in"></i> <span data-i18n="portfolio.hint">Voir détails</span></div>
               </div>
             </div>
           </div>
 
           <!-- Interfaz Huella Local -->
           <div class="col-lg-4 col-md-6 portfolio-item filter-gis">
-            <div class="portfolio-wrap">
-              <div class="portfolio-placeholder">
-                <i class="bi bi-geo-alt"></i>
-                <span>INTERFAZ HUELLA LOCAL</span>
-              </div>
-              <div class="portfolio-links">
-                <a href="https://github.com/dannlebeau/interfaz-huella-local" title="GitHub" target="_blank"><i class="bx bx-link"></i></a>
+            <div class="portfolio-wrap project-card" data-project-idx="5" data-bs-toggle="modal" data-bs-target="#projectModal">
+              <div class="project-card-inner">
+                <i class="bi bi-geo-alt project-card-icon"></i>
+                <div class="project-card-name">Interfaz Huella Local</div>
+                <div class="project-card-cat" data-i18n="cat.gis">Interfaces GIS</div>
+                <div class="project-card-hint"><i class="bi bi-zoom-in"></i> <span data-i18n="portfolio.hint">Voir détails</span></div>
               </div>
             </div>
           </div>
 
           <!-- Water Dash -->
           <div class="col-lg-4 col-md-6 portfolio-item filter-gis filter-data">
-            <div class="portfolio-wrap">
-              <div class="portfolio-placeholder">
-                <i class="bi bi-droplet-half"></i>
-                <span>WATER DASH</span>
-              </div>
-              <div class="portfolio-links">
-                <a href="https://dannlebeau.github.io/water-dash/" title="Ver proyecto" target="_blank"><i class="bx bx-link"></i></a>
+            <div class="portfolio-wrap project-card" data-project-idx="6" data-bs-toggle="modal" data-bs-target="#projectModal">
+              <div class="project-card-inner">
+                <i class="bi bi-droplet-half project-card-icon"></i>
+                <div class="project-card-name">Water Dash</div>
+                <div class="project-card-cat" data-i18n="cat.gis_data">GIS · Données Territoriales</div>
+                <div class="project-card-hint"><i class="bi bi-zoom-in"></i> <span data-i18n="portfolio.hint">Voir détails</span></div>
               </div>
             </div>
           </div>
 
           <!-- LAC Map -->
           <div class="col-lg-4 col-md-6 portfolio-item filter-gis">
-            <div class="portfolio-wrap">
-              <div class="portfolio-placeholder">
-                <i class="bi bi-globe-americas"></i>
-                <span>LAC MAP</span>
-              </div>
-              <div class="portfolio-links">
-                <a href="https://dannlebeau.github.io/lacmap.github.io/" title="Ver proyecto" target="_blank"><i class="bx bx-link"></i></a>
+            <div class="portfolio-wrap project-card" data-project-idx="7" data-bs-toggle="modal" data-bs-target="#projectModal">
+              <div class="project-card-inner">
+                <i class="bi bi-globe-americas project-card-icon"></i>
+                <div class="project-card-name">LAC Map</div>
+                <div class="project-card-cat" data-i18n="cat.gis">Interfaces GIS</div>
+                <div class="project-card-hint"><i class="bi bi-zoom-in"></i> <span data-i18n="portfolio.hint">Voir détails</span></div>
               </div>
             </div>
           </div>
 
           <!-- Viajero Smart -->
           <div class="col-lg-4 col-md-6 portfolio-item filter-data filter-stack">
-            <div class="portfolio-wrap">
-              <div class="portfolio-placeholder">
-                <i class="bi bi-signpost-split"></i>
-                <span>VIAJERO SMART</span>
-              </div>
-              <div class="portfolio-links">
-                <a href="https://github.com/dannlebeau/viajero-smart" title="GitHub" target="_blank"><i class="bx bx-link"></i></a>
+            <div class="portfolio-wrap project-card" data-project-idx="8" data-bs-toggle="modal" data-bs-target="#projectModal">
+              <div class="project-card-inner">
+                <i class="bi bi-signpost-split project-card-icon"></i>
+                <div class="project-card-name">Viajero Smart</div>
+                <div class="project-card-cat" data-i18n="cat.data_stack">Données Territoriales · Full Stack</div>
+                <div class="project-card-hint"><i class="bi bi-zoom-in"></i> <span data-i18n="portfolio.hint">Voir détails</span></div>
               </div>
             </div>
           </div>
 
           <!-- Mercado Eficiente -->
           <div class="col-lg-4 col-md-6 portfolio-item filter-stack">
-            <div class="portfolio-wrap">
-              <div class="portfolio-placeholder">
-                <i class="bi bi-shop"></i>
-                <span>MERCADO EFICIENTE</span>
-              </div>
-              <div class="portfolio-links">
-                <a href="https://github.com/dannlebeau/mercado-eficiente-app" title="GitHub" target="_blank"><i class="bx bx-link"></i></a>
+            <div class="portfolio-wrap project-card" data-project-idx="9" data-bs-toggle="modal" data-bs-target="#projectModal">
+              <div class="project-card-inner">
+                <i class="bi bi-shop project-card-icon"></i>
+                <div class="project-card-name">Mercado Eficiente</div>
+                <div class="project-card-cat" data-i18n="cat.stack">Full Stack</div>
+                <div class="project-card-hint"><i class="bi bi-zoom-in"></i> <span data-i18n="portfolio.hint">Voir détails</span></div>
               </div>
             </div>
           </div>
 
-          <!-- Geopolis web -->
+          <!-- Geopolis Web -->
           <div class="col-lg-4 col-md-6 portfolio-item filter-stack">
-            <div class="portfolio-wrap">
-              <div class="portfolio-placeholder">
-                <i class="bi bi-building"></i>
-                <span>GEOPOLIS WEB</span>
-              </div>
-              <div class="portfolio-links">
-                <a href="https://github.com/dannlebeau/geopolis" title="GitHub" target="_blank"><i class="bx bx-link"></i></a>
+            <div class="portfolio-wrap project-card" data-project-idx="10" data-bs-toggle="modal" data-bs-target="#projectModal">
+              <div class="project-card-inner">
+                <i class="bi bi-building project-card-icon"></i>
+                <div class="project-card-name">Geopolis Web</div>
+                <div class="project-card-cat" data-i18n="cat.stack">Full Stack</div>
+                <div class="project-card-hint"><i class="bi bi-zoom-in"></i> <span data-i18n="portfolio.hint">Voir détails</span></div>
               </div>
             </div>
           </div>
 
           <!-- Publicación -->
           <div class="col-lg-4 col-md-6 portfolio-item filter-research">
-            <div class="portfolio-wrap">
-              <img src="assets/img/cover_issue_9.jpg" class="img-fluid" alt="Publicación Terra Australis">
-              <div class="portfolio-links">
-                <a href="assets/img/cover_issue_9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Accesibilidad Espacial — Revista Terra Australis"><i class="bx bx-plus"></i></a>
-                <a href="https://www.revistaterraaustralis.cl/index.php/rgch/article/view/122" title="Leer artículo" target="_blank"><i class="bx bx-link"></i></a>
+            <div class="portfolio-wrap project-card" data-project-idx="11" data-bs-toggle="modal" data-bs-target="#projectModal">
+              <div class="project-card-inner" style="background:linear-gradient(rgba(6,15,30,0.78),rgba(6,15,30,0.88)), url('assets/img/cover_issue_9.jpg') center/cover no-repeat;">
+                <i class="bi bi-journal-text project-card-icon"></i>
+                <div class="project-card-name" data-i18n="proj.pub.name">Publication Scientifique</div>
+                <div class="project-card-cat" data-i18n="cat.research">Recherche</div>
+                <div class="project-card-hint"><i class="bi bi-zoom-in"></i> <span data-i18n="portfolio.hint">Voir détails</span></div>
               </div>
             </div>
           </div>
 
-        </div>
-
-        <!-- ── Detail cards by theme ── -->
-
-        <!-- GIS Interfaces -->
-        <div class="row mt-5 g-3" data-aos="fade-up">
-          <div class="col-12">
-            <h5 style="font-size:0.72rem;text-transform:uppercase;letter-spacing:1.5px;color:#00adb5;font-weight:700;margin-bottom:18px;"><i class="bi bi-map-fill me-1"></i> Interfaces GIS</h5>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="feat-card">
-              <div class="icon"><i class="bi bi-water"></i></div>
-              <h4>Alerta Caudal</h4>
-              <p>Simulador de inundación: dibuja zonas de cobertura por nivel de caudal e impacto en infraestructura crítica — vías, hospitales, colegios.</p>
-              <div class="tech-tags mb-2"><span class="tech-tag">Leaflet.js</span><span class="tech-tag">JavaScript</span><span class="tech-tag">GeoJSON</span></div>
-              <a href="https://dannlebeau.github.io/alerta-caudal/" target="_blank">Live demo →</a>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="feat-card">
-              <div class="icon"><i class="bi bi-fire"></i></div>
-              <h4>Riesgo Incendios</h4>
-              <p>Análisis de riesgo forestal y urbano: cobertura vegetal, hidrantes, accesibilidad vial y cuarteles de bomberos en un mapa interactivo.</p>
-              <div class="tech-tags mb-2"><span class="tech-tag">Leaflet.js</span><span class="tech-tag">JavaScript</span><span class="tech-tag">Turf.js</span></div>
-              <a href="https://dannlebeau.github.io/riesgo-incendios/" target="_blank">Live demo →</a>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="feat-card">
-              <div class="icon"><i class="bi bi-map"></i></div>
-              <h4>Visor GIS Atlas</h4>
-              <p>Visor cartográfico multiestilo con capas temáticas intercambiables y soporte de fuentes vectoriales propias.</p>
-              <div class="tech-tags mb-2"><span class="tech-tag">JavaScript</span><span class="tech-tag">Leaflet.js</span><span class="tech-tag">Vector Tiles</span></div>
-              <a href="https://github.com/dannlebeau/visor-gis-atlas" target="_blank">GitHub →</a>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="feat-card">
-              <div class="icon"><i class="bi bi-geo-alt-fill"></i></div>
-              <h4>Interfaz Huella Local</h4>
-              <p>Interfaz geoespacial para proyectos de diagnóstico territorial desarrollados en Fundación Huella Local (CMPC, MINDES, Los Andes).</p>
-              <div class="tech-tags mb-2"><span class="tech-tag">Leaflet.js</span><span class="tech-tag">Python</span><span class="tech-tag">QGIS</span></div>
-              <a href="https://github.com/dannlebeau/interfaz-huella-local" target="_blank">GitHub →</a>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="feat-card">
-              <div class="icon"><i class="bi bi-droplet-half"></i></div>
-              <h4>Water Dash</h4>
-              <p>Dashboard hídrico con visualización de datos de caudal en tiempo real, gráficos de series temporales y alerta por umbral.</p>
-              <div class="tech-tags mb-2"><span class="tech-tag">TypeScript</span><span class="tech-tag">Leaflet.js</span><span class="tech-tag">Charts</span></div>
-              <a href="https://dannlebeau.github.io/water-dash/" target="_blank">Live demo →</a>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="feat-card">
-              <div class="icon"><i class="bi bi-globe-americas"></i></div>
-              <h4>LAC Map</h4>
-              <p>Mapa interactivo de América Latina y el Caribe — desarrollado en el contexto del proyecto SomosLAC (GIZ/IDOM).</p>
-              <div class="tech-tags mb-2"><span class="tech-tag">JavaScript</span><span class="tech-tag">Leaflet.js</span><span class="tech-tag">ArcGIS Online</span></div>
-              <a href="https://dannlebeau.github.io/lacmap.github.io/" target="_blank">Live demo →</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Datos Territoriales -->
-        <div class="row mt-4 g-3" data-aos="fade-up">
-          <div class="col-12">
-            <h5 style="font-size:0.72rem;text-transform:uppercase;letter-spacing:1.5px;color:#00adb5;font-weight:700;margin-bottom:18px;"><i class="bi bi-database-fill me-1"></i> Datos Territoriales</h5>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="feat-card">
-              <div class="icon"><i class="bi bi-signpost-split"></i></div>
-              <h4>Viajero Smart</h4>
-              <p>App de planificación de rutas inteligente con integración de datos de transporte, puntos de interés y análisis de accesibilidad espacial.</p>
-              <div class="tech-tags mb-2"><span class="tech-tag">JavaScript</span><span class="tech-tag">Routing</span><span class="tech-tag">OSM</span></div>
-              <a href="https://github.com/dannlebeau/viajero-smart" target="_blank">GitHub →</a>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="feat-card">
-              <div class="icon"><i class="bi bi-buildings"></i></div>
-              <h4>Mappin Hub</h4>
-              <p>Plataforma GIS multicliente para municipios: acceso por token, permisos en tiempo real con Supabase, panel admin CRUD y portal por comuna.</p>
-              <div class="tech-tags mb-2"><span class="tech-tag">Supabase</span><span class="tech-tag">Vanilla JS</span><span class="tech-tag">PostgreSQL</span></div>
-              <a href="https://github.com/dannlebeau/mapping-hub" target="_blank">GitHub →</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Full Stack -->
-        <div class="row mt-4 g-3" data-aos="fade-up">
-          <div class="col-12">
-            <h5 style="font-size:0.72rem;text-transform:uppercase;letter-spacing:1.5px;color:#00adb5;font-weight:700;margin-bottom:18px;"><i class="bi bi-laptop me-1"></i> Full Stack</h5>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="feat-card">
-              <div class="icon"><i class="bi bi-shop"></i></div>
-              <h4>Mercado Eficiente</h4>
-              <p>Interfaz web para visualización rápida de datos de mercado: filtros dinámicos, tablas interactivas y dashboard de indicadores.</p>
-              <div class="tech-tags mb-2"><span class="tech-tag">TypeScript</span><span class="tech-tag">React</span><span class="tech-tag">REST API</span></div>
-              <a href="https://github.com/dannlebeau/mercado-eficiente-app" target="_blank">GitHub →</a>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="feat-card">
-              <div class="icon"><i class="bi bi-building"></i></div>
-              <h4>Geopolis Web</h4>
-              <p>Web corporativa para Geopolis Consultores — presentación de servicios de consultoría territorial y proyectos de inversión pública.</p>
-              <div class="tech-tags mb-2"><span class="tech-tag">HTML</span><span class="tech-tag">CSS</span><span class="tech-tag">JavaScript</span></div>
-              <a href="https://github.com/dannlebeau/geopolis" target="_blank">GitHub →</a>
-            </div>
-          </div>
         </div>
 
       </div>
@@ -961,39 +879,39 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>What I do</h2>
+          <h2 data-i18n="services.title">Ce que je fais</h2>
         </div>
 
         <div class="row">
           <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
             <div class="icon"><i class="bi bi-globe2"></i></div>
-            <h4 class="title">Geographic Web Interfaces</h4>
-            <p class="description">Interactive web maps with Leaflet, ArcGIS Online and custom JS — connected to real spatial databases.</p>
+            <h4 class="title" data-i18n="svc.0.title">Interfaces Web Géographiques</h4>
+            <p class="description" data-i18n="svc.0.desc">Cartes web interactives avec Leaflet, ArcGIS Online et JS personnalisé, connectées à de vraies bases de données spatiales.</p>
           </div>
           <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
             <div class="icon"><i class="bi bi-cpu"></i></div>
-            <h4 class="title">Spatial Data Processing</h4>
-            <p class="description">Geoprocessing pipelines with Python (GeoPandas, Shapely), R and QGIS/ArcGIS ModelBuilder for large geodatasets.</p>
+            <h4 class="title" data-i18n="svc.1.title">Traitement de Données Spatiales</h4>
+            <p class="description" data-i18n="svc.1.desc">Pipelines de géotraitement avec Python (GeoPandas, Shapely), R et QGIS/ArcGIS ModelBuilder pour de grands jeux de géodonnées.</p>
           </div>
           <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
             <div class="icon"><i class="bi bi-graph-up-arrow"></i></div>
-            <h4 class="title">Territorial Analysis</h4>
-            <p class="description">Urban diagnostics, risk assessment, land-use change, climate vulnerability and socioeconomic evaluation of public investment projects.</p>
+            <h4 class="title" data-i18n="svc.2.title">Analyse Territoriale</h4>
+            <p class="description" data-i18n="svc.2.desc">Diagnostics urbains, évaluation des risques, évolution de l'usage des sols, vulnérabilité climatique et évaluation socioéconomique de projets d'investissement public.</p>
           </div>
           <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
             <div class="icon"><i class="bi bi-database-gear"></i></div>
-            <h4 class="title">Spatial Databases</h4>
-            <p class="description">PostgreSQL + PostGIS, Oracle Spatial and cloud backends (Supabase) for real-time geospatial APIs.</p>
+            <h4 class="title" data-i18n="svc.3.title">Bases de Données Spatiales</h4>
+            <p class="description" data-i18n="svc.3.desc">PostgreSQL + PostGIS, Oracle Spatial et backends cloud (Supabase) pour des APIs géospatiales en temps réel.</p>
           </div>
           <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
             <div class="icon"><i class="bi bi-layers"></i></div>
-            <h4 class="title">Cartography</h4>
-            <p class="description">Technical cartography for SEIA environmental assessments, PLADECOs, master plans and urban research.</p>
+            <h4 class="title" data-i18n="svc.4.title">Cartographie</h4>
+            <p class="description" data-i18n="svc.4.desc">Cartographie technique pour évaluations environnementales (SEIA), PLADECOs, plans directeurs et recherche urbaine.</p>
           </div>
           <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
             <div class="icon"><i class="bi bi-lightning-charge"></i></div>
-            <h4 class="title">GIS Automation</h4>
-            <p class="description">Python/JS scripts for format conversion (lyr→GeoJSON), batch geoprocessing and spatial ETL pipelines.</p>
+            <h4 class="title" data-i18n="svc.5.title">Automatisation GIS</h4>
+            <p class="description" data-i18n="svc.5.desc">Scripts Python/JS pour la conversion de formats (lyr→GeoJSON), géotraitement par lots et pipelines ETL spatiaux.</p>
           </div>
         </div>
 
@@ -1005,7 +923,7 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Contact</h2>
+          <h2 data-i18n="contact.title">Contact</h2>
         </div>
 
         <div class="row" data-aos="fade-in">
@@ -1014,12 +932,12 @@
             <div class="info">
               <div class="address">
                 <i class="bi bi-geo-alt"></i>
-                <h4>Location:</h4>
-                <p>Barcelona, Spain / Santiago, Chile</p>
+                <h4 data-i18n="contact.location">Localisation :</h4>
+                <p>Barcelona, Espagne / Santiago, Chili</p>
               </div>
               <div class="email">
                 <i class="bi bi-envelope"></i>
-                <h4>Email:</h4>
+                <h4 data-i18n="contact.email">E-mail :</h4>
                 <p>legeographe@proton.me</p>
               </div>
             </div>
@@ -1029,28 +947,28 @@
             <form action="forms/contact.php" method="post" role="form" class="php-email-form">
               <div class="row">
                 <div class="form-group col-md-6">
-                  <label for="name">Your Name</label>
+                  <label for="name" data-i18n="contact.name">Votre nom</label>
                   <input type="text" name="name" class="form-control" id="name" required>
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="email">Your Email</label>
+                  <label for="email" data-i18n="contact.emailfield">Votre e-mail</label>
                   <input type="email" class="form-control" name="email" id="email" required>
                 </div>
               </div>
               <div class="form-group">
-                <label for="subject">Subject</label>
+                <label for="subject" data-i18n="contact.subject">Objet</label>
                 <input type="text" class="form-control" name="subject" id="subject" required>
               </div>
               <div class="form-group">
-                <label for="message">Message</label>
+                <label for="message" data-i18n="contact.message">Message</label>
                 <textarea class="form-control" name="message" rows="10" required></textarea>
               </div>
               <div class="my-3">
-                <div class="loading">Loading</div>
+                <div class="loading" data-i18n="contact.loading">Chargement...</div>
                 <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
+                <div class="sent-message" data-i18n="contact.sent">Votre message a été envoyé. Merci !</div>
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+              <div class="text-center"><button type="submit" data-i18n="contact.send">Envoyer</button></div>
             </form>
           </div>
 
@@ -1060,6 +978,38 @@
     </section>
 
   </main>
+
+  <!-- ======= Project Detail Modal ======= -->
+  <div class="modal fade" id="projectModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content" style="background:#0c1a2e;border:1px solid rgba(0,173,181,0.25);border-radius:12px;color:#d9e2ef;">
+        <div class="modal-header" style="border-bottom:1px solid rgba(255,255,255,0.07);padding:20px 24px 16px;">
+          <div class="d-flex align-items-center gap-3 flex-grow-1">
+            <span id="modal-icon" style="font-size:2.2rem;color:#00adb5;line-height:1;flex-shrink:0;"></span>
+            <div>
+              <h5 class="modal-title mb-0" id="modal-name" style="font-size:1.1rem;font-weight:700;color:#d9e2ef;"></h5>
+              <span id="modal-cat" style="font-size:0.7rem;color:#00adb5;font-weight:600;letter-spacing:.5px;"></span>
+            </div>
+          </div>
+          <button type="button" class="btn-close btn-close-white ms-3" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body" style="padding:22px 24px 18px;">
+          <p id="modal-desc" style="color:#b0bec5;font-size:0.92rem;line-height:1.78;margin-bottom:16px;"></p>
+          <div id="modal-tags" class="tech-tags mb-3"></div>
+          <div id="modal-links" class="d-flex gap-3 flex-wrap mt-3"></div>
+        </div>
+        <div class="modal-footer" style="border-top:1px solid rgba(255,255,255,0.07);padding:14px 24px;display:flex;justify-content:space-between;align-items:center;">
+          <button id="modal-prev" class="btn btn-sm px-3" style="background:rgba(0,173,181,0.1);color:#00adb5;border:1px solid rgba(0,173,181,0.3);border-radius:6px;font-size:0.82rem;">
+            <i class="bi bi-chevron-left me-1"></i> <span data-i18n="modal.prev">Précédent</span>
+          </button>
+          <span id="modal-counter" style="font-size:0.75rem;color:#55667788;"></span>
+          <button id="modal-next" class="btn btn-sm px-3" style="background:rgba(0,173,181,0.1);color:#00adb5;border:1px solid rgba(0,173,181,0.3);border-radius:6px;font-size:0.82rem;">
+            <span data-i18n="modal.next">Suivant</span> <i class="bi bi-chevron-right ms-1"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Template: BootstrapMade iPortfolio — https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
 
@@ -1086,20 +1036,315 @@
       if (el) el.textContent = new Date().getFullYear();
     })();
 
-    // ── Dynamic experience counter since graduation (Jan 3, 2019) ──
-    (function () {
-      const grad = new Date(2019, 0, 3);
-      const now  = new Date();
-      let years  = now.getFullYear() - grad.getFullYear();
-      let months = now.getMonth()    - grad.getMonth();
+    // ── Dynamic experience counter ──
+    window._currentLang = 'fr';
+
+    function updateExpCounter(lang) {
+      var grad = new Date(2019, 0, 3);
+      var now  = new Date();
+      var years  = now.getFullYear() - grad.getFullYear();
+      var months = now.getMonth() - grad.getMonth();
       if (now.getDate() < grad.getDate()) months--;
       if (months < 0) { years--; months += 12; }
+      var units = { fr:{ y:'ans', m:'mo' }, en:{ y:'yrs', m:'mo' }, es:{ y:'años', m:'mo' } };
+      var u = units[lang] || units.fr;
+      var elY = document.getElementById('exp-years');
+      var elM = document.getElementById('exp-months');
+      if (elY) elY.textContent = years + ' ' + u.y;
+      if (elM && months > 0) elM.textContent = months + ' ' + u.m;
+    }
+    updateExpCounter('fr');
 
-      const elY = document.getElementById('exp-years');
-      const elM = document.getElementById('exp-months');
-      if (elY) elY.textContent = years + ' yrs';
-      if (elM && months > 0) elM.textContent = months + ' mo';
-    })();
+    // ── Translations ──
+    var T = {
+      fr: {
+        'nav.home':'Accueil','nav.about':'À propos','nav.skills':'Compétences','nav.resume':'Parcours','nav.projects':'Projets','nav.contact':'Contact',
+        'sidebar.tagline':'Urbaniste · Développeur GeoTech',
+        'hero.iam':'Je suis',
+        'typed.items':'Urbaniste,Analyste Territorial,Développeur GIS,Cartographe Web,Data Scientist Spatial',
+        'about.title':'À propos',
+        'about.bio':"Urbaniste et planificateur territorial avec plus de 7 ans d'expérience en analyse spatiale, diagnostic urbain et développement de technologies géographiques. J'ai travaillé au Chili, en Espagne et sur des projets d'envergure latino-américaine, notamment des plans communaux de développement, des évaluations de vulnérabilité climatique et des viseurs territoriaux interactifs pour des organismes publics, des cabinets de conseil internationaux et des fondations. Le SIG est mon outil central, que je combine avec le développement web pour rendre l'analyse territoriale plus accessible et utile à la décision. Actuellement doctorant en Planification Territoriale et Gestion Environnementale à l'Universitat de Barcelona.",
+        'about.h3':'Urbaniste & Développeur GeoTech',
+        'about.birthday':'Date de naissance :','about.city':'Ville :','about.freelance':'Freelance :','about.available':'Disponible','about.degree':'Diplôme :','about.degree.val':'Doctorat (en cours)','about.email':'E-mail :',
+        'stats.exp':'Exp. professionnelle','stats.projects':'Projets livrés','stats.countries':'Pays',
+        'skills.title':'Compétences techniques','skills.subtitle':'Stack de développement spatial full-stack, de la géodonnée brute aux cartes web en direct.','skills.lang':'Langues',
+        'resume.title':'Parcours',
+        'resume.bio':"Urbaniste et planificateur territorial avec un doctorat en cours, spécialisé en analyse de données géographiques, développement web géospatial et intelligence territoriale. Je construis des viseurs territoriaux et plateformes de données spatiales avec ArcGIS, Leaflet et JavaScript ; je traite des géodonnées avec Python et R ; et je conçois des solutions full-stack reliant bases de données, APIs et cartes interactives pour des clients publics et privés au Chili, en Espagne et en Amérique latine.",
+        'resume.academic':'Formation académique','resume.pub':'Publication','resume.experience':'Expérience professionnelle','resume.technical':'Formation technique',
+        'resume.technical.sub':'Formation technologique en développement full stack, analyse spatiale et science des données appliqués au territoire.',
+        'edu.phd.title':'Doctorat en Planification Territoriale et Gestion Environnementale','edu.phd.date':'Sept 2025 – présent','edu.phd.place':'Universitat de Barcelona, Barcelone, Espagne','edu.phd.desc':'Programme : Géographie, Planification Territoriale et Gestion Environnementale. Fin prévue nov. 2029.',
+        'edu.master.title':'Master en Planification Territoriale et Gestion Environnementale','edu.master.place':'Universitat de Barcelona, Barcelone, Espagne','edu.master.desc':'Mémoire : « Mesurer la ville compacte. Défis pour la planification territoriale à Santiago du Chili. »',
+        'edu.bachelor.title':'Licence en Géographie','edu.bachelor.desc':"Mémoire soutenu le 3 janv. 2019 : Évolution de l'usage des terres dans la commune de Curepto, 1986–2016.",
+        'pub.read':"Lire l'article →",
+        'exp.0.title':'Consultant Territorial & Géospatial','exp.0.date':'Nov 2025 – présent','exp.0.desc':"Formulation et évaluation socioéconomique de projets d'investissement public (SNI/BIP). Analyse géographique et gestion de la télédétection pour des projets de pavage routier dans les municipalités.",
+        'exp.1.title':'Analyste Territorial','exp.1.desc':"Direction des analyses GIS et développement d'interfaces web géographiques pour des projets avec CMPC (Radiografía del Agua), le Ministère du Développement Social et la Municipalité de Los Andes (Plan d'Action Climatique : vulnérabilité et émissions de GES).",
+        'exp.2.title':'Spécialiste en Analyse Territoriale','exp.2.desc':"Développement d'interfaces géographiques interactives avec Leaflet + JS et ArcGIS Online/Arcade pour des projets incluant SomosLAC (GIZ), PEZC Valparaíso (Autorité Portuaire) et Al Ahsa Local Plan (Arabie Saoudite). Scripts Python/JS pour la conversion lyr→GeoJSON/Shapefile et modélisation de la mobilité.",
+        'exp.3.title':'Géographe / Consultant PLADECO','exp.3.desc':"Direction de la création du système d'information territorial et de la cartographie spécialisée pour le Plan de Développement Communal de Punitaqui (PLADECO 2024–2028) avec ArcGIS Pro.",
+        'exp.4.title':'Chercheur Associé en Changement Climatique','exp.4.desc':"Caractérisation de la vulnérabilité climatique de la Région del Biobío pour le Plan d'Action Régional sur le Changement Climatique (PARCC).",
+        'exp.5.title':"Chargé d'Implémentation GIS",'exp.5.desc':"Développement et intégration de fonctionnalités géospatiales dans le portail institutionnel d'une société sanitaire utilisant l'infrastructure ESRI. Gestion de la migration de bases de données géographiques et alphanumériques via Oracle SQL Developer.",
+        'exp.6.title':'Analyste Territorial','exp.6.desc':"Enquêtes terrain, cartographie GIS et analyse qualitative pour le projet d'assistance technique sur les normes d'intervention dans les zones typiques de la commune de Santiago.",
+        'exp.7.title':'Géographe Indépendant & Consultant','exp.7.date':'Mars 2019 – présent','exp.7.place':'Indépendant, Chili / Espagne','exp.7.desc':"Diagnostics territoriaux, évaluations climatiques et environnementales. Développement de viseurs géospatiaux avec Leaflet, JavaScript et Node.js. Analyses GIS pour des études d'impact environnemental (SEIA).",
+        'portfolio.title':'Projets','portfolio.subtitle':"Interfaces géospatiales, plateformes territoriales et applications full stack construites avec Leaflet, ArcGIS, JavaScript, Python et TypeScript. Cliquez sur un projet pour voir les détails.",'portfolio.hint':'Voir détails',
+        'filter.all':'Tout','filter.gis':'Interfaces GIS','filter.data':'Données Territoriales','filter.research':'Recherche',
+        'cat.gis':'Interfaces GIS','cat.gis_stack':'GIS · Full Stack','cat.gis_data':'GIS · Données Territoriales','cat.data_stack':'Données Territoriales · Full Stack','cat.stack':'Full Stack','cat.research':'Recherche',
+        'proj.pub.name':'Publication Scientifique',
+        'services.title':'Ce que je fais',
+        'svc.0.title':'Interfaces Web Géographiques','svc.0.desc':"Cartes web interactives avec Leaflet, ArcGIS Online et JS personnalisé, connectées à de vraies bases de données spatiales.",
+        'svc.1.title':'Traitement de Données Spatiales','svc.1.desc':"Pipelines de géotraitement avec Python (GeoPandas, Shapely), R et QGIS/ArcGIS ModelBuilder pour de grands jeux de géodonnées.",
+        'svc.2.title':'Analyse Territoriale','svc.2.desc':"Diagnostics urbains, évaluation des risques, évolution de l'usage des sols, vulnérabilité climatique et évaluation socioéconomique de projets d'investissement public.",
+        'svc.3.title':'Bases de Données Spatiales','svc.3.desc':"PostgreSQL + PostGIS, Oracle Spatial et backends cloud (Supabase) pour des APIs géospatiales en temps réel.",
+        'svc.4.title':'Cartographie','svc.4.desc':"Cartographie technique pour évaluations environnementales (SEIA), PLADECOs, plans directeurs et recherche urbaine.",
+        'svc.5.title':'Automatisation GIS','svc.5.desc':"Scripts Python/JS pour la conversion de formats (lyr→GeoJSON), géotraitement par lots et pipelines ETL spatiaux.",
+        'contact.title':'Contact','contact.location':'Localisation :','contact.email':'E-mail :','contact.name':'Votre nom','contact.emailfield':'Votre e-mail','contact.subject':'Objet','contact.message':'Message','contact.loading':'Chargement...','contact.sent':'Votre message a été envoyé. Merci !','contact.send':'Envoyer',
+        'modal.prev':'Précédent','modal.next':'Suivant'
+      },
+      en: {
+        'nav.home':'Home','nav.about':'About','nav.skills':'Skills','nav.resume':'Resume','nav.projects':'Projects','nav.contact':'Contact',
+        'sidebar.tagline':'Urbanist · GeoTech Developer',
+        'hero.iam':"I'm a",
+        'typed.items':'Urban Planner,Territorial Analyst,GIS Developer,Web Map Builder,Spatial Data Scientist',
+        'about.title':'About',
+        'about.bio':'Urban planner and territorial planning specialist with over 7 years in spatial analysis, urban diagnostics and geographic technology development. I have worked in Chile, Spain and on projects across Latin America, ranging from communal development plans and climate vulnerability assessments to interactive territorial viewers for public agencies, international consultancies and foundations. GIS is my core tool, combined with web development to make territorial analysis more accessible and useful for decision-making. Currently pursuing a PhD in Territorial Planning and Environmental Management at the Universitat de Barcelona.',
+        'about.h3':'Urbanist & GeoTech Developer',
+        'about.birthday':'Birthday:','about.city':'City:','about.freelance':'Freelance:','about.available':'Available','about.degree':'Degree:','about.degree.val':'PhD (in progress)','about.email':'Email:',
+        'stats.exp':'Professional exp.','stats.projects':'Projects delivered','stats.countries':'Countries',
+        'skills.title':'Technical Skills','skills.subtitle':'Full-stack spatial development stack, from raw geodata to live web maps.','skills.lang':'Languages',
+        'resume.title':'Resume',
+        'resume.bio':'Urban planner and territorial planning specialist with a PhD in progress, specializing in geographic data analysis, geospatial web development and territorial intelligence. I build territorial viewers and spatial data platforms with ArcGIS, Leaflet and JavaScript; process geodata with Python and R; and design full-stack solutions connecting databases, APIs and interactive maps for public and private clients in Chile, Spain and Latin America.',
+        'resume.academic':'Academic Background','resume.pub':'Publication','resume.experience':'Professional Experience','resume.technical':'Technical Training',
+        'resume.technical.sub':'Technological training in full-stack development, spatial analysis and data science applied to territory.',
+        'edu.phd.title':'PhD in Territorial Planning & Environmental Management','edu.phd.date':'Sep 2025 – present','edu.phd.place':'Universitat de Barcelona, Barcelona, Spain','edu.phd.desc':'Program: Geography, Territorial Planning and Environmental Management. Expected completion Nov 2029.',
+        'edu.master.title':"Master's in Territorial Planning & Environmental Management",'edu.master.place':'Universitat de Barcelona, Barcelona, Spain','edu.master.desc':'Thesis: "Measuring the compact city. Challenges for territorial planning in Santiago de Chile."',
+        'edu.bachelor.title':"Bachelor's in Geography",'edu.bachelor.desc':'Thesis defended Jan 3, 2019: Land-use change in Curepto commune, 1986–2016.',
+        'pub.read':'Read article →',
+        'exp.0.title':'Territorial & Geospatial Consultant','exp.0.date':'Nov 2025 – present','exp.0.desc':'Formulation and socioeconomic evaluation of public investment projects (SNI/BIP). Geographic analysis and remote sensing management for road paving projects in municipalities.',
+        'exp.1.title':'Territorial Analyst','exp.1.desc':'Led GIS analysis and developed geographic web interfaces for projects with CMPC (Radiografía del Agua), Ministry of Social Development, and Municipality of Los Andes (Climate Change Action Plan: vulnerability and GHG emissions).',
+        'exp.2.title':'Territorial Analysis Specialist','exp.2.desc':'Built interactive geographic interfaces with Leaflet + JS and ArcGIS Online/Arcade for projects including SomosLAC (GIZ), PEZC Valparaíso (Port Authority) and Al Ahsa Local Plan (Saudi Arabia). Python/JS scripts for lyr→GeoJSON/Shapefile conversion and mobility modelling.',
+        'exp.3.title':'Geographer / PLADECO Consultant','exp.3.desc':'Led the creation of the territorial information system and specialized cartography for the Punitaqui Communal Development Plan (PLADECO 2024–2028) using ArcGIS Pro.',
+        'exp.4.title':'Research Associate in Climate Change','exp.4.desc':'Characterized climate vulnerability of Biobío Region for the Regional Climate Change Action Plan (PARCC).',
+        'exp.5.title':'GIS Implementer','exp.5.desc':'Developed and integrated geospatial functionalities in the corporate portal of a sanitary company using ESRI infrastructure. Managed geographic and alphanumeric database migration via Oracle SQL Developer.',
+        'exp.6.title':'Territorial Analyst','exp.6.desc':'Field surveys, GIS cartography and qualitative analysis for the Technical Assistance project on intervention standards for typical zones of Santiago commune.',
+        'exp.7.title':'Independent Geographer & Consultant','exp.7.date':'Mar 2019 – present','exp.7.place':'Autonomous, Chile / Spain','exp.7.desc':'Territorial diagnostics, climate and environmental assessments. Development of geospatial web viewers with Leaflet, JavaScript and Node.js. GIS analysis for SEIA environmental impact assessments.',
+        'portfolio.title':'Projects','portfolio.subtitle':'Geospatial interfaces, territorial platforms and full-stack applications built with Leaflet, ArcGIS, JavaScript, Python and TypeScript. Click any project to see details.','portfolio.hint':'View details',
+        'filter.all':'All','filter.gis':'GIS Interfaces','filter.data':'Territorial Data','filter.research':'Research',
+        'cat.gis':'GIS Interfaces','cat.gis_stack':'GIS · Full Stack','cat.gis_data':'GIS · Territorial Data','cat.data_stack':'Territorial Data · Full Stack','cat.stack':'Full Stack','cat.research':'Research',
+        'proj.pub.name':'Scientific Publication',
+        'services.title':'What I do',
+        'svc.0.title':'Geographic Web Interfaces','svc.0.desc':'Interactive web maps with Leaflet, ArcGIS Online and custom JS, connected to real spatial databases.',
+        'svc.1.title':'Spatial Data Processing','svc.1.desc':'Geoprocessing pipelines with Python (GeoPandas, Shapely), R and QGIS/ArcGIS ModelBuilder for large geodatasets.',
+        'svc.2.title':'Territorial Analysis','svc.2.desc':'Urban diagnostics, risk assessment, land-use change, climate vulnerability and socioeconomic evaluation of public investment projects.',
+        'svc.3.title':'Spatial Databases','svc.3.desc':'PostgreSQL + PostGIS, Oracle Spatial and cloud backends (Supabase) for real-time geospatial APIs.',
+        'svc.4.title':'Cartography','svc.4.desc':'Technical cartography for SEIA environmental assessments, PLADECOs, master plans and urban research.',
+        'svc.5.title':'GIS Automation','svc.5.desc':'Python/JS scripts for format conversion (lyr→GeoJSON), batch geoprocessing and spatial ETL pipelines.',
+        'contact.title':'Contact','contact.location':'Location:','contact.email':'Email:','contact.name':'Your Name','contact.emailfield':'Your Email','contact.subject':'Subject','contact.message':'Message','contact.loading':'Loading','contact.sent':'Your message has been sent. Thank you!','contact.send':'Send Message',
+        'modal.prev':'Previous','modal.next':'Next'
+      },
+      es: {
+        'nav.home':'Inicio','nav.about':'Sobre mí','nav.skills':'Habilidades','nav.resume':'Currículum','nav.projects':'Proyectos','nav.contact':'Contacto',
+        'sidebar.tagline':'Urbanista · Desarrollador GeoTech',
+        'hero.iam':'Soy',
+        'typed.items':'Urbanista,Analista Territorial,Desarrollador GIS,Constructor de Mapas Web,Data Scientist Espacial',
+        'about.title':'Sobre mí',
+        'about.bio':'Urbanista y planificador territorial con más de 7 años de trayectoria en análisis espacial, diagnóstico urbano y desarrollo de tecnología geográfica. He trabajado en Chile, España y en proyectos de escala latinoamericana, incluyendo planes comunales de desarrollo, evaluaciones de vulnerabilidad climática y visores territoriales interactivos para organismos públicos, consultoras internacionales y fundaciones. El SIG es mi herramienta central, que combino con el desarrollo web para hacer el análisis territorial más accesible y orientado a la toma de decisiones. Actualmente cursando un Doctorado en Planificación Territorial y Gestión Ambiental en la Universitat de Barcelona.',
+        'about.h3':'Urbanista & Desarrollador GeoTech',
+        'about.birthday':'Cumpleaños:','about.city':'Ciudad:','about.freelance':'Freelance:','about.available':'Disponible','about.degree':'Título:','about.degree.val':'Doctorado (en curso)','about.email':'Email:',
+        'stats.exp':'Exp. profesional','stats.projects':'Proyectos entregados','stats.countries':'Países',
+        'skills.title':'Habilidades técnicas','skills.subtitle':'Stack de desarrollo espacial full-stack, desde geodatos crudos hasta mapas web en vivo.','skills.lang':'Idiomas',
+        'resume.title':'Currículum',
+        'resume.bio':'Urbanista y planificador territorial con doctorado en curso, especializado en análisis de datos geográficos, desarrollo web geoespacial e inteligencia territorial. Construyo visores territoriales y plataformas de datos espaciales con ArcGIS, Leaflet y JavaScript; proceso geodata con Python y R; y diseño soluciones full-stack que conectan bases de datos, APIs y mapas interactivos para clientes públicos y privados en Chile, España y Latinoamérica.',
+        'resume.academic':'Formación académica','resume.pub':'Publicación','resume.experience':'Experiencia profesional','resume.technical':'Formación técnica',
+        'resume.technical.sub':'Formación tecnológica en desarrollo full stack, análisis espacial y ciencia de datos aplicada al territorio.',
+        'edu.phd.title':'Doctorado en Planificación Territorial y Gestión Ambiental','edu.phd.date':'Sept 2025 – presente','edu.phd.place':'Universitat de Barcelona, Barcelona, España','edu.phd.desc':'Programa: Geografía, Planificación Territorial y Gestión Ambiental. Finalización prevista nov. 2029.',
+        'edu.master.title':'Máster en Planificación Territorial y Gestión Ambiental','edu.master.place':'Universitat de Barcelona, Barcelona, España','edu.master.desc':'Tesis: «Midiendo la ciudad compacta. Desafíos para la planificación territorial en Santiago de Chile».',
+        'edu.bachelor.title':'Licenciatura en Geografía','edu.bachelor.desc':'Tesis defendida el 3 ene. 2019: Cambio de uso de suelo en la comuna de Curepto, 1986–2016.',
+        'pub.read':'Leer artículo →',
+        'exp.0.title':'Consultor Territorial & Geoespacial','exp.0.date':'Nov 2025 – presente','exp.0.desc':'Formulación y evaluación socioeconómica de proyectos de inversión pública (SNI/BIP). Análisis geográfico y gestión de teledetección para proyectos de pavimentación vial en municipios.',
+        'exp.1.title':'Analista Territorial','exp.1.desc':'Lideré análisis GIS y desarrollé interfaces web geográficas para proyectos con CMPC (Radiografía del Agua), el Ministerio de Desarrollo Social y la Municipalidad de Los Andes (Plan de Acción Climática: vulnerabilidad y emisiones GEI).',
+        'exp.2.title':'Especialista en Análisis Territorial','exp.2.desc':'Construcción de interfaces geográficas interactivas con Leaflet + JS y ArcGIS Online/Arcade para proyectos como SomosLAC (GIZ), PEZC Valparaíso (Empresa Portuaria) y Al Ahsa Local Plan (Arabia Saudita). Scripts Python/JS para conversión lyr→GeoJSON/Shapefile y modelamiento de movilidad.',
+        'exp.3.title':'Geógrafo / Consultor PLADECO','exp.3.desc':'Lideré la creación del sistema de información territorial y cartografía especializada para el Plan Comunal de Desarrollo de Punitaqui (PLADECO 2024–2028) con ArcGIS Pro.',
+        'exp.4.title':'Investigador Asociado en Cambio Climático','exp.4.desc':'Caracterización de la vulnerabilidad climática de la Región del Biobío para el Plan de Acción Regional ante el Cambio Climático (PARCC).',
+        'exp.5.title':'Implementador GIS','exp.5.desc':'Desarrollo e integración de funcionalidades geoespaciales en el portal institucional de una empresa sanitaria usando infraestructura ESRI. Gestión de migración de bases de datos geográficas y alfanuméricas mediante Oracle SQL Developer.',
+        'exp.6.title':'Analista Territorial','exp.6.desc':'Levantamiento en terreno, cartografía GIS y análisis cualitativo para el proyecto de Asistencia Técnica sobre estándares de intervención en zonas típicas de la comuna de Santiago.',
+        'exp.7.title':'Geógrafo Independiente & Consultor','exp.7.date':'Mar 2019 – presente','exp.7.place':'Autónomo, Chile / España','exp.7.desc':'Diagnósticos territoriales, evaluaciones climáticas y ambientales. Desarrollo de visores geoespaciales con Leaflet, JavaScript y Node.js. Análisis GIS para evaluaciones de impacto ambiental (SEIA).',
+        'portfolio.title':'Proyectos','portfolio.subtitle':'Interfaces geoespaciales, plataformas territoriales y aplicaciones full stack construidas con Leaflet, ArcGIS, JavaScript, Python y TypeScript. Haz clic en cualquier proyecto para ver los detalles.','portfolio.hint':'Ver detalles',
+        'filter.all':'Todo','filter.gis':'Interfaces GIS','filter.data':'Datos Territoriales','filter.research':'Investigación',
+        'cat.gis':'Interfaces GIS','cat.gis_stack':'GIS · Full Stack','cat.gis_data':'GIS · Datos Territoriales','cat.data_stack':'Datos Territoriales · Full Stack','cat.stack':'Full Stack','cat.research':'Investigación',
+        'proj.pub.name':'Publicación Científica',
+        'services.title':'Lo que hago',
+        'svc.0.title':'Interfaces Web Geográficas','svc.0.desc':'Mapas web interactivos con Leaflet, ArcGIS Online y JS personalizado, conectados a bases de datos espaciales reales.',
+        'svc.1.title':'Procesamiento de Datos Espaciales','svc.1.desc':'Pipelines de geoprocesamiento con Python (GeoPandas, Shapely), R y QGIS/ArcGIS ModelBuilder para grandes conjuntos de geodatos.',
+        'svc.2.title':'Análisis Territorial','svc.2.desc':'Diagnósticos urbanos, evaluación de riesgos, cambio de uso del suelo, vulnerabilidad climática y evaluación socioeconómica de proyectos de inversión pública.',
+        'svc.3.title':'Bases de Datos Espaciales','svc.3.desc':'PostgreSQL + PostGIS, Oracle Spatial y backends cloud (Supabase) para APIs geoespaciales en tiempo real.',
+        'svc.4.title':'Cartografía','svc.4.desc':'Cartografía técnica para evaluaciones ambientales SEIA, PLADECOs, planes maestros e investigación urbana.',
+        'svc.5.title':'Automatización GIS','svc.5.desc':'Scripts Python/JS para conversión de formatos (lyr→GeoJSON), geoprocesamiento por lotes y pipelines ETL espaciales.',
+        'contact.title':'Contacto','contact.location':'Ubicación:','contact.email':'Email:','contact.name':'Tu nombre','contact.emailfield':'Tu email','contact.subject':'Asunto','contact.message':'Mensaje','contact.loading':'Cargando','contact.sent':'Tu mensaje ha sido enviado. ¡Gracias!','contact.send':'Enviar mensaje',
+        'modal.prev':'Anterior','modal.next':'Siguiente'
+      }
+    };
+
+    // ── Project modal data (multilingual) ──
+    var PROJECTS = [
+      { icon:'bi bi-water', name:'Alerta Caudal',
+        cat:{ fr:'Interfaces GIS', en:'GIS Interfaces', es:'Interfaces GIS' },
+        desc:{ fr:"Simulateur d'inondation : dessine des zones de couverture par niveau de débit et l'impact sur les infrastructures critiques, notamment routes, hôpitaux et écoles.", en:'Flood simulator: draws coverage zones by flow level and impact on critical infrastructure, including roads, hospitals and schools.', es:'Simulador de inundación: dibuja zonas de cobertura por nivel de caudal e impacto en infraestructura crítica, incluyendo vías, hospitales y colegios.' },
+        tags:['Leaflet.js','JavaScript','GeoJSON'], live:'https://dannlebeau.github.io/alerta-caudal/', repo:null },
+      { icon:'bi bi-fire', name:'Riesgo Incendios',
+        cat:{ fr:'Interfaces GIS', en:'GIS Interfaces', es:'Interfaces GIS' },
+        desc:{ fr:"Analyse du risque forestier et urbain : couverture végétale, bouches d'incendie, accessibilité routière et casernes de pompiers dans un viseur interactif.", en:'Forest and urban fire risk analysis: vegetation cover, fire hydrants, road accessibility and fire stations in an interactive viewer.', es:'Análisis de riesgo forestal y urbano: cobertura vegetal, hidrantes, accesibilidad vial y cuarteles de bomberos en un visor interactivo.' },
+        tags:['Leaflet.js','JavaScript','Turf.js'], live:'https://dannlebeau.github.io/riesgo-incendios/', repo:null },
+      { icon:'bi bi-buildings', name:'Mappin Hub',
+        cat:{ fr:'GIS · Full Stack', en:'GIS · Full Stack', es:'GIS · Full Stack' },
+        desc:{ fr:"Plateforme GIS multi-client pour communes : accès par token, permissions en temps réel avec Supabase, panel admin CRUD et portail territorial par commune.", en:'Multi-client GIS platform for municipalities: token-based access, real-time permissions with Supabase, CRUD admin panel and territorial portal by commune.', es:'Plataforma GIS multicliente para municipios: acceso por token, permisos en tiempo real con Supabase, panel admin CRUD y portal territorial por comuna.' },
+        tags:['Supabase','Vanilla JS','PostgreSQL','PostGIS'], live:null, repo:'https://github.com/dannlebeau/mapping-hub' },
+      { icon:'bi bi-tsunami', name:'PEZC Valparaíso',
+        cat:{ fr:'Interfaces GIS', en:'GIS Interfaces', es:'Interfaces GIS' },
+        desc:{ fr:"Plan Spécial de Zonification du Littoral de Valparaíso, viseur territorial développé pour l'Empresa Portuaria de Valparaíso avec ArcGIS Online et Arcade.", en:'Special Zoning Plan for the Valparaíso Waterfront, a territorial viewer developed for the Port Authority of Valparaíso with ArcGIS Online and Arcade.', es:'Plan Especial de Zonificación del Borde Costero de Valparaíso, visor territorial desarrollado para la Empresa Portuaria de Valparaíso con ArcGIS Online y Arcade.' },
+        tags:['ArcGIS Online','Arcade','JavaScript'], live:null, repo:null },
+      { icon:'bi bi-map', name:'Visor GIS Atlas',
+        cat:{ fr:'Interfaces GIS', en:'GIS Interfaces', es:'Interfaces GIS' },
+        desc:{ fr:"Viseur cartographique multi-style avec couches thématiques interchangeables, filtres dynamiques et support de sources vectorielles propriétaires.", en:'Multi-style cartographic viewer with interchangeable thematic layers, dynamic filters and custom vector tile source support.', es:'Visor cartográfico multiestilo con capas temáticas intercambiables, filtros dinámicos y soporte de fuentes vectoriales propias.' },
+        tags:['JavaScript','Leaflet.js','Vector Tiles'], live:null, repo:'https://github.com/dannlebeau/visor-gis-atlas' },
+      { icon:'bi bi-geo-alt', name:'Interfaz Huella Local',
+        cat:{ fr:'Interfaces GIS', en:'GIS Interfaces', es:'Interfaces GIS' },
+        desc:{ fr:"Interface géospatiale pour des projets de diagnostic territorial à la Fundación Huella Local, notamment Radiografía del Agua (CMPC), Plan d'Action Climatique de Los Andes et MINDES.", en:'Geospatial interface for territorial diagnostic projects at Fundación Huella Local, including Radiografía del Agua (CMPC), Los Andes Climate Action Plan and MINDES.', es:'Interfaz geoespacial para proyectos de diagnóstico territorial en Fundación Huella Local, incluyendo Radiografía del Agua (CMPC), Plan de Acción Climática de Los Andes y MINDES.' },
+        tags:['Leaflet.js','Python','QGIS'], live:null, repo:'https://github.com/dannlebeau/interfaz-huella-local' },
+      { icon:'bi bi-droplet-half', name:'Water Dash',
+        cat:{ fr:'GIS · Données Territoriales', en:'GIS · Territorial Data', es:'GIS · Datos Territoriales' },
+        desc:{ fr:"Tableau de bord hydrique avec visualisation des données de débit, graphiques de séries temporelles et alertes par seuil critique. Intégration d'API de données hydrométeéorologiques.", en:'Hydrological dashboard with flow data visualization, time series charts and critical threshold alerts. Integration of hydrometeorological data API.', es:'Dashboard hídrico con visualización de datos de caudal, gráficos de series temporales y alertas por umbral crítico. Integración de API de datos hidrometeorológicos.' },
+        tags:['TypeScript','Leaflet.js','Charts'], live:'https://dannlebeau.github.io/water-dash/', repo:null },
+      { icon:'bi bi-globe-americas', name:'LAC Map',
+        cat:{ fr:'Interfaces GIS', en:'GIS Interfaces', es:'Interfaces GIS' },
+        desc:{ fr:"Carte interactive de l'Amérique latine et des Caraïbes, développée dans le cadre du projet SomosLAC (GIZ/IDOM). Couches thématiques d'indicateurs sociaux et environnementaux par pays.", en:'Interactive map of Latin America and the Caribbean, developed for the SomosLAC project (GIZ/IDOM). Thematic layers of social and environmental indicators by country.', es:'Mapa interactivo de América Latina y el Caribe, desarrollado en el contexto del proyecto SomosLAC (GIZ/IDOM). Capas temáticas de indicadores sociales y ambientales por país.' },
+        tags:['JavaScript','Leaflet.js','ArcGIS Online'], live:'https://dannlebeau.github.io/lacmap.github.io/', repo:null },
+      { icon:'bi bi-signpost-split', name:'Viajero Smart',
+        cat:{ fr:'Données Territoriales · Full Stack', en:'Territorial Data · Full Stack', es:'Datos Territoriales · Full Stack' },
+        desc:{ fr:"Application de planification d'itinéraires avec intégration des transports en commun, points d'intérêt touristique et analyse de l'accessibilité spatiale.", en:'Route planning app with public transport integration, tourist points of interest and spatial accessibility analysis.', es:'App de planificación de rutas con integración de datos de transporte público, puntos de interés turístico y análisis de accesibilidad espacial.' },
+        tags:['JavaScript','Routing','OpenStreetMap'], live:null, repo:'https://github.com/dannlebeau/viajero-smart' },
+      { icon:'bi bi-shop', name:'Mercado Eficiente',
+        cat:{ fr:'Full Stack', en:'Full Stack', es:'Full Stack' },
+        desc:{ fr:"Interface web pour la visualisation rapide de données de marché : filtres dynamiques, tableaux interactifs et tableau de bord d'indicateurs économiques en temps réel.", en:'Web interface for rapid market data visualization: dynamic filters, interactive tables and real-time economic indicator dashboard.', es:'Interfaz web para visualización rápida de datos de mercado: filtros dinámicos, tablas interactivas y dashboard de indicadores económicos en tiempo real.' },
+        tags:['TypeScript','React','REST API'], live:null, repo:'https://github.com/dannlebeau/mercado-eficiente-app' },
+      { icon:'bi bi-building', name:'Geopolis Web',
+        cat:{ fr:'Full Stack', en:'Full Stack', es:'Full Stack' },
+        desc:{ fr:"Site web institutionnel pour Geopolis Consultores, avec présentation des services de conseil territorial, cartographie et formulation de projets d'investissement public.", en:'Corporate website for Geopolis Consultores, presenting territorial consulting services, cartography and public investment project formulation.', es:'Web corporativa para Geopolis Consultores, con presentación de servicios de consultoría territorial, cartografía y formulación de proyectos de inversión pública.' },
+        tags:['HTML','CSS','JavaScript'], live:null, repo:'https://github.com/dannlebeau/geopolis' },
+      { icon:'bi bi-journal-text', name:{ fr:'Publication Scientifique', en:'Scientific Publication', es:'Publicación Científica' },
+        cat:{ fr:'Recherche', en:'Research', es:'Investigación' },
+        desc:{ fr:"Accessibilité Spatiale dans la commune de Quinta Normal, publiée dans Revista Geográfica Terra Australis, Vol. 58, ISSN 0719-9562. Applique la méthode 2SFCA aux services d'éducation, santé et sécurité.", en:"Spatial Accessibility in Quinta Normal, published in Revista Geográfica Terra Australis, Vol. 58, ISSN 0719-9562. Applies the 2SFCA (Two-Step Floating Catchment Area) method to education, health and security services.", es:'Accesibilidad Espacial en la comuna de Quinta Normal, publicada en Revista Geográfica Terra Australis, Vol. 58, ISSN 0719-9562. Aplica el método 2SFCA a servicios de educación, salud y seguridad.' },
+        tags:['Método 2SFCA','QGIS','R','Análisis espacial'], live:'https://www.revistaterraaustralis.cl/index.php/rgch/article/view/122/70', repo:null }
+    ];
+
+    var currentProjectIdx = 0;
+    window._typedInstance = null;
+
+    function renderProject(idx) {
+      var lang = window._currentLang || 'fr';
+      var p = PROJECTS[idx];
+      currentProjectIdx = idx;
+
+      var iconEl = document.getElementById('modal-icon');
+      if (iconEl) iconEl.className = p.icon;
+
+      var nameEl = document.getElementById('modal-name');
+      if (nameEl) nameEl.textContent = typeof p.name === 'object' ? (p.name[lang] || p.name.fr) : p.name;
+
+      var catEl = document.getElementById('modal-cat');
+      if (catEl) catEl.textContent = typeof p.cat === 'object' ? (p.cat[lang] || p.cat.fr) : p.cat;
+
+      var descEl = document.getElementById('modal-desc');
+      if (descEl) descEl.textContent = typeof p.desc === 'object' ? (p.desc[lang] || p.desc.fr) : p.desc;
+
+      var tagsEl = document.getElementById('modal-tags');
+      if (tagsEl) tagsEl.innerHTML = p.tags.map(function(t){ return '<span class="tech-tag">' + t + '</span>'; }).join('');
+
+      var linksEl = document.getElementById('modal-links');
+      if (linksEl) {
+        linksEl.innerHTML = '';
+        if (p.live) linksEl.innerHTML += '<a href="' + p.live + '" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:rgba(0,173,181,0.15);color:#00adb5;border:1px solid rgba(0,173,181,0.4);border-radius:6px;padding:7px 18px;text-decoration:none;font-size:0.82rem;font-weight:600;"><i class="bi bi-box-arrow-up-right"></i> Live demo</a>';
+        if (p.repo) linksEl.innerHTML += '<a href="' + p.repo + '" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.05);color:#aaa;border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:7px 18px;text-decoration:none;font-size:0.82rem;font-weight:600;"><i class="bx bxl-github"></i> GitHub</a>';
+      }
+
+      var counterEl = document.getElementById('modal-counter');
+      if (counterEl) counterEl.textContent = (idx + 1) + ' / ' + PROJECTS.length;
+
+      var prevBtn = document.getElementById('modal-prev');
+      var nextBtn = document.getElementById('modal-next');
+      if (prevBtn) prevBtn.disabled = (idx === 0);
+      if (nextBtn) nextBtn.disabled = (idx === PROJECTS.length - 1);
+    }
+
+    function setLang(lang) {
+      window._currentLang = lang;
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll('.lang-btn').forEach(function(btn) {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+
+      if (T[lang]) {
+        document.querySelectorAll('[data-i18n]').forEach(function(el) {
+          var key = el.getAttribute('data-i18n');
+          if (T[lang][key] !== undefined) el.textContent = T[lang][key];
+        });
+      }
+
+      updateExpCounter(lang);
+
+      var typedEl = document.querySelector('.typed');
+      if (typedEl && T[lang] && T[lang]['typed.items']) {
+        if (window._typedInstance) { try { window._typedInstance.destroy(); } catch(e) {} }
+        window._typedInstance = new Typed('.typed', {
+          strings: T[lang]['typed.items'].split(',').map(function(s){ return s.trim(); }),
+          loop: true, typeSpeed: 100, backSpeed: 50, backDelay: 2000
+        });
+      }
+
+      var modalEl = document.getElementById('projectModal');
+      if (modalEl && modalEl.classList.contains('show')) renderProject(currentProjectIdx);
+
+      try { localStorage.setItem('portfolio-lang', lang); } catch(e) {}
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var savedLang = 'fr';
+      try { savedLang = localStorage.getItem('portfolio-lang') || 'fr'; } catch(e) {}
+      window._currentLang = savedLang;
+
+      document.querySelectorAll('.project-card').forEach(function(card) {
+        card.addEventListener('click', function() {
+          renderProject(parseInt(this.dataset.projectIdx, 10));
+        });
+      });
+
+      var prevBtn = document.getElementById('modal-prev');
+      var nextBtn = document.getElementById('modal-next');
+      if (prevBtn) prevBtn.addEventListener('click', function() {
+        if (currentProjectIdx > 0) renderProject(currentProjectIdx - 1);
+      });
+      if (nextBtn) nextBtn.addEventListener('click', function() {
+        if (currentProjectIdx < PROJECTS.length - 1) renderProject(currentProjectIdx + 1);
+      });
+
+      var modal = document.getElementById('projectModal');
+      if (modal) {
+        modal.addEventListener('keydown', function(e) {
+          if (e.key === 'ArrowLeft' && currentProjectIdx > 0) renderProject(currentProjectIdx - 1);
+          if (e.key === 'ArrowRight' && currentProjectIdx < PROJECTS.length - 1) renderProject(currentProjectIdx + 1);
+        });
+      }
+
+      document.querySelectorAll('.lang-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() { setLang(this.dataset.lang); });
+      });
+
+      if (savedLang !== 'fr') {
+        setLang(savedLang);
+      } else {
+        document.querySelectorAll('.lang-btn').forEach(function(btn) {
+          btn.classList.toggle('active', btn.dataset.lang === 'fr');
+        });
+      }
+    });
 
     // ── Sidebar collapse when hero leaves viewport ──
     (function () {
