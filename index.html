@@ -1037,7 +1037,10 @@
     // ── LinkedIn link ──
     (function () {
       var a = document.getElementById('li-link');
-      if (a) a.href = atob('aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2pjb3Jkb3ZhZnJlZGVzLw==');
+      if (a) a.addEventListener('click', function (e) {
+        e.preventDefault();
+        window.open(atob('aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2pjb3Jkb3ZhZnJlZGVzLw=='), '_blank');
+      });
     })();
 
     // ── Dynamic experience counter ──
